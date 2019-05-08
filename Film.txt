@@ -1,0 +1,4 @@
+.Ojciec chrzestny	Gangsterski	Francis Ford Coppola	1972	10	0	3
+.Django	Western	Quentin Tarantino	2012	10	0	2
+.Nietykalni	Komedia	Olivier Nakache	2011	10	0	1
+.Pulp Fiction	Gangsterski	Quentin Tarantino	1994	10	0	0

@@ -1,0 +1,263 @@
+\hypertarget{_menu__struktura_8c}{}\section{Menu\+\_\+struktura.\+c File Reference}
+\label{_menu__struktura_8c}\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_menu__struktura_8c_a802c84452854799df868a4a660d3d58a}{ilosc}~50
+\item 
+\#define \hyperlink{_menu__struktura_8c_aa23c661441688350614bd6a350d2b6ff}{size}~20
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_menu__struktura_8c_addcf89fa7d03b11a9b9ccab63fb65ff7}{menu1} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$head)
+\item 
+void \hyperlink{_menu__struktura_8c_abdd43d5b8e15a93674a21bb8e59f9eba}{menu2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_menu__struktura_8c_aff8097863ad875a442ae7baa649d52ea}{menu3} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head3, \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head2, \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$head)
+\item 
+void \hyperlink{_menu__struktura_8c_a8aebdaa4551d69927f00588aa54cdc9b}{menu} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$head, \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head2, \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head3)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_menu__struktura_8c_a802c84452854799df868a4a660d3d58a}\label{_menu__struktura_8c_a802c84452854799df868a4a660d3d58a}} 
+\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}!ilosc@{ilosc}}
+\index{ilosc@{ilosc}!Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{ilosc}{ilosc}}
+{\footnotesize\ttfamily \#define ilosc~50}
+
+
+
+Definition at line 9 of file Menu\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_menu__struktura_8c_aa23c661441688350614bd6a350d2b6ff}\label{_menu__struktura_8c_aa23c661441688350614bd6a350d2b6ff}} 
+\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}!size@{size}}
+\index{size@{size}!Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \#define size~20}
+
+
+
+Definition at line 10 of file Menu\+\_\+struktura.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_menu__struktura_8c_a8aebdaa4551d69927f00588aa54cdc9b}\label{_menu__struktura_8c_a8aebdaa4551d69927f00588aa54cdc9b}} 
+\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}!menu@{menu}}
+\index{menu@{menu}!Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$}]{head,  }\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head2,  }\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head3 }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca menu glowne wyczyszczenie konsoli
+
+wyswietlenie opcji
+
+do p przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wyczyszczenie konsoli
+
+wywolanie odpowiedniej funkcji
+
+wybor uzytkownika i wybranie odopwiedniej funkcji
+
+jezeli 2
+
+wyczyszczenie konsoli
+
+wywolanie odpowiedniej funkcji
+
+jezeli 3
+
+wyczyszczenie konsoli
+
+wywolanie odpowiedniej funkcji
+
+dopoki p nie jest 0 
+
+Definition at line 165 of file Menu\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_menu__struktura_8c_addcf89fa7d03b11a9b9ccab63fb65ff7}\label{_menu__struktura_8c_addcf89fa7d03b11a9b9ccab63fb65ff7}} 
+\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}!menu1@{menu1}}
+\index{menu1@{menu1}!Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{menu1()}{menu1()}}
+{\footnotesize\ttfamily void menu1 (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca menu z opcjami odnosnie listy klientów petla do..while
+
+wyczyszczenie konsoli
+
+wyswietlenie opcji
+
+do i przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1 wywołujey odpowiednia funkcje
+
+jezeli 2 wywołujey odpowiednia funkcje
+
+jezeli 3 wywołujey odpowiednia funkcje
+
+jezeli 4 wywołujey odpowiednia funkcje
+
+jezeli 5 wywołujey odpowiednia funkcje
+
+jezeli 6 wywołujey odpowiednia funkcje
+
+jezelie 0
+
+wyswietlenie komunikatu
+
+petla do..while
+
+wyswietlenie komunikatu
+
+do i przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wywołanie odpowiednie funckji
+
+wyjscie z petli
+
+jezeli 2 wyjscie z petli
+
+wyswietlenie komunikatu
+
+dopóki i jest rozne o 1 lub 2
+
+dopoki i nie jest 0 
+
+Definition at line 12 of file Menu\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_menu__struktura_8c_abdd43d5b8e15a93674a21bb8e59f9eba}\label{_menu__struktura_8c_abdd43d5b8e15a93674a21bb8e59f9eba}} 
+\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}!menu2@{menu2}}
+\index{menu2@{menu2}!Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{menu2()}{menu2()}}
+{\footnotesize\ttfamily void menu2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca menu z opcjami odnosnie listy filmow petla do while
+
+wyczyszczenie konsoli
+
+wyswietlenie opcji
+
+do i przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1 wywołujey odpowiednia funkcje
+
+jezeli 2 wywołujey odpowiednia funkcje
+
+jezeli 3 wywołujey odpowiednia funkcje
+
+jezeli 4 wywołujey odpowiednia funkcje
+
+jezeli 5 wywołujey odpowiednia funkcje
+
+jezeli 6 wywołujey odpowiednia funkcje
+
+jezeli 7 wywołujey odpowiednia funkcje
+
+jezeli 8 wywołujey odpowiednia funkcje
+
+jezeli 0
+
+wyswietlenie komunikatu
+
+petla do..while
+
+wyswietlenie komunikatu
+
+do p przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wywołanie odpowiednie funckji
+
+wyjscie z petli
+
+pobranie klawisza od uzytkownika
+
+jezeli 2 wyjscie z petli
+
+wyswietlenie komunikatu
+
+dopóki i jest rozne o 1 lub 2
+
+dopoki i nie jest 0 
+
+Definition at line 62 of file Menu\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_menu__struktura_8c_aff8097863ad875a442ae7baa649d52ea}\label{_menu__struktura_8c_aff8097863ad875a442ae7baa649d52ea}} 
+\index{Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}!menu3@{menu3}}
+\index{menu3@{menu3}!Menu\+\_\+struktura.\+c@{Menu\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{menu3()}{menu3()}}
+{\footnotesize\ttfamily void menu3 (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head3,  }\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head2,  }\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca menu z wypozyczeniami petla do while
+
+wyczyszczenie konsoli
+
+wyswietlenie opcji
+
+do i przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1 wywołujey odpowiednia funkcje
+
+jezeli 2 wywołujey odpowiednia funkcje
+
+jezeli 3 wywołujey odpowiednia funkcje
+
+jezeli 4 wywołujey odpowiednia funkcje
+
+jezeli 5 wywołujey odpowiednia funkcje
+
+jezeli 0
+
+wyswietlenie komunikatu
+
+petla do..while
+
+wyswietlenie komunikatu
+
+do p przypisywany jest pobrany klawisz
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wywołanie odpowiednie funckji
+
+wyjscie z petli
+
+jezeli 2 wyjscie z petli
+
+wyswietlenie komunikatu
+
+dopóki i jest rozne o 1 lub 2
+
+dopoki i nie jest 0 
+
+Definition at line 117 of file Menu\+\_\+struktura.\+c.
+

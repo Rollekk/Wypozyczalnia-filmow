@@ -1,0 +1,370 @@
+\hypertarget{_klient__struktura_8c}{}\section{Klient\+\_\+struktura.\+c File Reference}
+\label{_klient__struktura_8c}\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_k_l_i_e_n_t}{K\+L\+I\+E\+NT}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_klient__struktura_8c_a802c84452854799df868a4a660d3d58a}{ilosc}~50
+\item 
+\#define \hyperlink{_klient__struktura_8c_aa23c661441688350614bd6a350d2b6ff}{size}~20
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_k_l_i_e_n_t}{K\+L\+I\+E\+NT} \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_klient__struktura_8c_a767cbe990b95e2226dd5fdf7d269cd9d}{I\+D\+\_\+\+Klienta} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\item 
+\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$ \hyperlink{_klient__struktura_8c_a31e3ed2bb8f015bfaf139e015ff7dbe6}{Tworzenie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\item 
+void \hyperlink{_klient__struktura_8c_a16f146c327d2fb1881cfb702296eb264}{Dodawanie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\item 
+void \hyperlink{_klient__struktura_8c_ae3311c886a8139bd249a26659bcbd5b9}{Wyswietlenie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$head)
+\item 
+\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$ \hyperlink{_klient__struktura_8c_ab487fdc6a9aaa70ae0192bf6561e80cd}{Usuwanie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$head)
+\item 
+void \hyperlink{_klient__struktura_8c_a2b0cf1da79aee627946219722898d946}{Edytowanie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\item 
+void \hyperlink{_klient__struktura_8c_a041952bf43c8b6002e34f202983d0c76}{Zapisywanie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$head)
+\item 
+void \hyperlink{_klient__struktura_8c_ae035f3b249ba7587e51e49716ee6b21e}{Wczytanie} (\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_klient__struktura_8c_a802c84452854799df868a4a660d3d58a}\label{_klient__struktura_8c_a802c84452854799df868a4a660d3d58a}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!ilosc@{ilosc}}
+\index{ilosc@{ilosc}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{ilosc}{ilosc}}
+{\footnotesize\ttfamily \#define ilosc~50}
+
+
+
+Definition at line 9 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_aa23c661441688350614bd6a350d2b6ff}\label{_klient__struktura_8c_aa23c661441688350614bd6a350d2b6ff}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!size@{size}}
+\index{size@{size}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \#define size~20}
+
+
+
+Definition at line 10 of file Klient\+\_\+struktura.\+c.
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}\label{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Klient@{Klient}}
+\index{Klient@{Klient}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Klient}{Klient}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_k_l_i_e_n_t}{K\+L\+I\+E\+NT} \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient}}
+
+
+
+Definition at line 12 of file Klient\+\_\+struktura.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_klient__struktura_8c_a16f146c327d2fb1881cfb702296eb264}\label{_klient__struktura_8c_a16f146c327d2fb1881cfb702296eb264}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Dodawanie@{Dodawanie}}
+\index{Dodawanie@{Dodawanie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Dodawanie()}{Dodawanie()}}
+{\footnotesize\ttfamily void Dodawanie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja dodajaca klienta przypisanie wskaznikowi tmp funkcji tworzenia
+
+jezeli lista nie jest pusta
+
+nastepnemu elementowi przypisujemy head
+
+przypisujemy wskaznikowi head wartosc tmp 
+
+Definition at line 63 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_a2b0cf1da79aee627946219722898d946}\label{_klient__struktura_8c_a2b0cf1da79aee627946219722898d946}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Edytowanie@{Edytowanie}}
+\index{Edytowanie@{Edytowanie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Edytowanie()}{Edytowanie()}}
+{\footnotesize\ttfamily void Edytowanie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja edytujaca klienta przypisujemy wskaznikowi tmp wartosc head
+
+wczyszczenie ekranu
+
+wyswietlenie polecenia dla uzytkownika
+
+pobranie wartosci pobranej przez uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli lista nie jest pusta
+
+dopóki nie jest pusta
+
+jezeli id podane jest zgodne z zachowanym w liscie
+
+wyswietlamy dostepne opcje
+
+wykonujemy podany w petli do..while
+
+wyczyszczenie ekranu
+
+wyswietlenie opcji
+
+wyswietlenie klienta
+
+przypisanie i pobranego klawisza
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wyczyszczenie ekranu
+
+wypisujemy aktualne imie
+
+pobieramy nowe imie od uzytkwnika
+
+pobranie klawisza od uzytkownika
+
+jezeli 2
+
+wyczyszczenie ekranu
+
+wypisujemy aktualne nazwisko
+
+pobieramy nowe nazwisko od uzytkwnika
+
+pobranie klawisza od uzytkownika
+
+jezeli 3
+
+wyczyszczenie ekranu
+
+wypisujemy aktualny telefon
+
+pobieramy nowy telefon od uzytkwnika
+
+pobranie klawisza od uzytkownika
+
+wykonujemy petle dopoki nie napotakmy 0
+
+jezeli zostanie podany bledny numer wypisujemy komunikat
+
+przypisujemy wskaznikowi tmp wartosc nastepna aby przechodzic poprawnie po liscie 
+
+Definition at line 133 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_a767cbe990b95e2226dd5fdf7d269cd9d}\label{_klient__struktura_8c_a767cbe990b95e2226dd5fdf7d269cd9d}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!I\+D\+\_\+\+Klienta@{I\+D\+\_\+\+Klienta}}
+\index{I\+D\+\_\+\+Klienta@{I\+D\+\_\+\+Klienta}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{I\+D\+\_\+\+Klienta()}{ID\_Klienta()}}
+{\footnotesize\ttfamily int I\+D\+\_\+\+Klienta (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funckja wyliczajaca ID klienta jeżeli lista jest pusta
+
+zwracamy 0 jako id
+
+gdy nie jest pusta, zwiekszamy id o 1 i zwracamy 
+
+Definition at line 21 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_a31e3ed2bb8f015bfaf139e015ff7dbe6}\label{_klient__struktura_8c_a31e3ed2bb8f015bfaf139e015ff7dbe6}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Tworzenie@{Tworzenie}}
+\index{Tworzenie@{Tworzenie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Tworzenie()}{Tworzenie()}}
+{\footnotesize\ttfamily \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient}$\ast$ Tworzenie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja tworzaca liste klientów wyczyszczenie ekranu konsoli
+
+wyswietlenie polecenia dla uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+przypisanie ID wartosci zwracanej funkcji
+
+zalokowanie pamięci na wskaznik
+
+przypisanie wartosci N\+U\+LL nastepnemy elementowi wskaznika
+
+kopiujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+kopiujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+przypisujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+przypisujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+pobranie klawisza od uzytkownika
+
+zwracamy wskaznik listy 
+
+Definition at line 33 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_ab487fdc6a9aaa70ae0192bf6561e80cd}\label{_klient__struktura_8c_ab487fdc6a9aaa70ae0192bf6561e80cd}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Usuwanie@{Usuwanie}}
+\index{Usuwanie@{Usuwanie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Usuwanie()}{Usuwanie()}}
+{\footnotesize\ttfamily \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient}$\ast$ Usuwanie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja usuwajaca wyczyszczenie ekranu
+
+wyswietlenie polecenia dla uzytkownika
+
+pobranie wartosci podanej przez uzytkownika
+
+pobranie klawisza od uzytkownika
+
+wskaznik tymczasowy tmp wskazuje na head
+
+wskaznik pomocniczy prev wskazuje równie? na head
+
+dopóki wskaznik nie pokazuje konca listy wykonuj polecenia
+
+rozpoczynamy przeszukiwanie listy za podanym elementem
+
+jesli wartosc zgadza sie z liczba z danych z elementu
+
+gdy do usuniecia jest head
+
+przesuwamy wskaznik head na nastepny element
+
+usuwamy element
+
+jesli element do usuniecia nie jest pierwszym na liscie to\+:
+
+wskaznikowi nastepnemu z poprzedniego nadajemy
+
+wartosc wskaznika nastepnego z tmp( z tego do usuniecia )
+
+usuwamy wartosc na która wskazuje tmp
+
+tmp przechodzi na nastepny element
+
+jezli wartooa nie jest taka jak liczba z danych z elementu to\+:
+
+prev przyjmuje wartosc tmp
+
+tmp przechodzi do nastepnego elementu listy
+
+zwracamy wskaznik head 
+
+Definition at line 95 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_ae035f3b249ba7587e51e49716ee6b21e}\label{_klient__struktura_8c_ae035f3b249ba7587e51e49716ee6b21e}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Wczytanie@{Wczytanie}}
+\index{Wczytanie@{Wczytanie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wczytanie()}{Wczytanie()}}
+{\footnotesize\ttfamily void Wczytanie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wczytujaca wskaznikowi wczytaj przypisujemy N\+U\+LL na poczatek
+
+przypisanie pliku do otworzenia
+
+wskaznikowi wczytaj przypisujemy otwarcie pliku, r-\/read
+
+jezeli nie ma pliku
+
+to wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+dopóki w pliku są linijki i funkcja nie zwróci E\+OF
+
+zalokowanie pamieci na wskaznik
+
+przypisanie wskaznikowi tmp-\/$>$next wartosci N\+U\+LL
+
+wczytujemy dane
+
+jezeli lista jest pusta
+
+przypisujemy jej wartosc wskaznika tmp
+
+jezeli nie jest pusta przypisujemy wskaznikowi pom wartosc wskaznika head
+
+dopóki wskaznik pom-\/$>$next nie jest pusty
+
+przypisujemy wskaznikowi pom wskaznik na nastepny element
+
+a wskaznikowi na nastepny element wartosc wskaznika tmp 
+
+Definition at line 241 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_ae3311c886a8139bd249a26659bcbd5b9}\label{_klient__struktura_8c_ae3311c886a8139bd249a26659bcbd5b9}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Wyswietlenie@{Wyswietlenie}}
+\index{Wyswietlenie@{Wyswietlenie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wyswietlenie()}{Wyswietlenie()}}
+{\footnotesize\ttfamily void Wyswietlenie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca liste wyczyszczenie ekranu
+
+przypisujemy wskaznikowi tmp wartosc head
+
+jezeli lista pusta
+
+wyswietlamy komunikat
+
+pobranie klawisza od uzytkownika
+
+dopóki lista nie jesst pusta
+
+wyswietlamy dane klienta
+
+wskaznikowi tmp przypisujemy wskaznik na element nastepny aby przejsc po liscie poprawnie
+
+pobranie klawisza od uzytkownika 
+
+Definition at line 71 of file Klient\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_klient__struktura_8c_a041952bf43c8b6002e34f202983d0c76}\label{_klient__struktura_8c_a041952bf43c8b6002e34f202983d0c76}} 
+\index{Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}!Zapisywanie@{Zapisywanie}}
+\index{Zapisywanie@{Zapisywanie}!Klient\+\_\+struktura.\+c@{Klient\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Zapisywanie()}{Zapisywanie()}}
+{\footnotesize\ttfamily void Zapisywanie (\begin{DoxyParamCaption}\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja zapisujaca wskaznikowi zapisz przypisujemy N\+U\+LL na poczatek
+
+przypisanie pliku do zapisu
+
+jezeli lista jest pusta
+
+wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+jezeli nie jest, do wskaznika zapisz otwieramy plik to zapisu, w-\/write
+
+jezeli nie ma pliku
+
+pobranie klawisza od uzytkownika
+
+wskaznikowi tmp przypisujemy wartosc head
+
+dopoki lista nie jst pusta
+
+wskanizkowi tmp przypisujemy wartosc nastepna aby poprawnie przechodzic po lisice 
+
+Definition at line 202 of file Klient\+\_\+struktura.\+c.
+

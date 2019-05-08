@@ -1,0 +1,4 @@
+.Filip	Nowak	3	876543109	
+.Jan	Kowalski	2	98098098	
+.Krzysztof	Kopec	1	321321321	
+.Jan	Krakowiak	0	123123123	

@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1498500533 source:c:\users\rollek\desktop\foldery\codeblock\projekt_pp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+	"Klient_struktura.c"
+	"Film_struktura.c"
+	"Wypozyczenie_struktura.c"
+	"Menu_struktura.c"
+
+1498504779 c:\users\rollek\desktop\foldery\codeblock\projekt_pp2\klient_struktura.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+
+1498503454 c:\users\rollek\desktop\foldery\codeblock\projekt_pp2\film_struktura.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+
+1498504447 c:\users\rollek\desktop\foldery\codeblock\projekt_pp2\wypozyczenie_struktura.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+
+1498503978 c:\users\rollek\desktop\foldery\codeblock\projekt_pp2\menu_struktura.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+	<time.h>
+	<conio.h>
+

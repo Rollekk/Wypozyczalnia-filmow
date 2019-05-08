@@ -1,0 +1,1306 @@
+#include <allegro.h>
+#include <cstdlib>
+#include <cstdio>
+#include <ctime>
+#include <iostream>
+#include <algorithm>
+#include <functional>
+
+using namespace std;
+
+//! rozmiar pola planszy w pikselach
+#define box_size 40
+
+//! liczba poziomych/pionowych elementow pol planszy
+#define number_of_elements 16
+
+//! szerokosc okna programu w pikselach
+#define window_size_y (box_size*(number_of_elements+4))
+
+//! wysokosc pola planszy w pikselach
+#define window_size_x (box_size*(number_of_elements+4))
+
+/*! init
+/*! funkcja inicjujaca biblioteke Allegro
+*/
+inline void init()
+{
+	allegro_init();
+	set_color_depth(16);
+	set_gfx_mode(GFX_AUTODETECT_WINDOWED, window_size_x, window_size_y, 0, 0);
+
+	install_timer();
+	install_keyboard();
+	install_mouse();
+
+
+    show_mouse( screen );
+    unscare_mouse();
+}
+
+/*! deinit
+/*! funkcja deinicjujaca biblioteke Allegro
+*/
+inline void deinit()
+{
+	clear_keybuf();
+	allegro_exit();
+}
+
+/*! print_map
+/*! funkcja rysujaca graficznie dwuwymiarowa tablice zawieraj1ca informacje dotyczace elementow gry(statki, pola puste, pola sprawdzone)
+*/
+void print_map(int plansza[number_of_elements][number_of_elements])
+{
+    rect(screen, box_size, box_size*2, ((box_size*number_of_elements)+box_size), ((box_size*number_of_elements)+2*box_size),
+         makecol(255, 255, 255));
+
+    for(int i=1; i<number_of_elements+1; i++)
+    {
+        for(int j=1; j<number_of_elements+1; j++)
+        {
+            //! pudlo
+            if(plansza[i-1][j-1] == 1)
+            {
+                circlefill(screen, (box_size*j)+(box_size/2), (box_size*i)+(box_size/2)+box_size, 3, makecol(255, 255, 255));
+            }
+            //! statek
+            if(plansza[i-1][j-1] == 2)
+            {
+                rect(screen, box_size*j, box_size*i+box_size, (box_size*j)+box_size, (box_size*i)+2*box_size, makecol(255, 255, 255));
+            }
+            //! statek pali sie
+            if(plansza[i-1][j-1] == 3)
+            {
+                rect(screen, box_size*j, box_size*i+box_size, (box_size*j)+box_size, (box_size*i)+2*box_size, makecol(255, 255, 255));
+                line(screen, box_size*j, box_size*i+box_size, (box_size*j)+box_size, (box_size*i)+2*box_size, makecol(255, 0, 0));
+                line(screen, box_size*j, (box_size*i)+2*box_size, (box_size*j)+box_size, box_size*i+box_size, makecol(255, 0, 0));
+            }
+        }
+    }
+}
+
+/*! print_map
+/*! funkcja rysujaca graficznie dwuwymiarowa tablice zawieraj1ca informacje
+                dotyczace elementow gry(statki, pola puste, pola sprawdzone) w sposob ukryty dla przeciwnika
+*/
+void print_map_hid(int plansza[number_of_elements][number_of_elements])
+{
+    rect(screen, box_size, box_size*2, ((box_size*number_of_elements)+box_size), ((box_size*number_of_elements)+2*box_size),
+         makecol(255, 255, 255));
+
+    for(int i=1; i<number_of_elements+1; i++)
+    {
+        for(int j=1; j<number_of_elements+1; j++)
+        {
+            //! pudlo
+            if(plansza[i-1][j-1] == 1)
+            {
+                circlefill(screen, (box_size*j)+(box_size/2), (box_size*i)+(box_size/2)+box_size, 3, makecol(255, 255, 255));
+            }
+            //! statek pali sie
+            if(plansza[i-1][j-1] == 3)
+            {
+                rect(screen, box_size*j, box_size*i+box_size, (box_size*j)+box_size, (box_size*i)+2*box_size, makecol(255, 255, 255));
+                line(screen, box_size*j, box_size*i+box_size, (box_size*j)+box_size, (box_size*i)+2*box_size, makecol(255, 0, 0));
+                line(screen, box_size*j, (box_size*i)+2*box_size, (box_size*j)+box_size, box_size*i+box_size, makecol(255, 0, 0));
+            }
+        }
+    }
+}
+
+/*! sprawdz_pola
+/*! funkcja sprawdzajaca stan pol okolicznych do pola podanego jako argumenty funkcji
+*/
+bool sprawdz_pola(int plansza[number_of_elements][number_of_elements], int i, int j)
+{
+        if(plansza[i][j]>0 || plansza[i+1][j]>0 || plansza[i-1][j]>0 || plansza[i][j+1]>0 || plansza[i][j-1]>0 ||
+           plansza[i+1][j+1]>0 || plansza[i+1][j-1]>0 || plansza[i-1][j+1]>0 || plansza[i-1][j-1]>0)
+        {
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+}
+
+/*! generate_ships
+/*! funkcja generujaca losowe polozenie statkow na planszy
+*/
+void generate_ships(int plansza[number_of_elements][number_of_elements])
+{
+    srand( time( NULL ) );
+
+    for(int i=0; i<number_of_elements; i++)
+    {
+        for(int j=0; j<number_of_elements; j++)
+        {
+            plansza[i][j] = 0;
+        }
+    }
+
+    //! losowanie polozenia czteromasztowca
+    bool maszt4=TRUE;
+
+    while(maszt4)
+    {
+        int i = rand()%number_of_elements;
+        int j = rand()%number_of_elements;
+        int kierunek = rand()%8;
+
+        if(sprawdz_pola(plansza, i, j))
+        {
+            //! kierunek w dol
+            if(kierunek == 0)
+            {
+                if((i+3)<number_of_elements && sprawdz_pola(plansza, i+1, j) && sprawdz_pola(plansza, i+2, j) &&
+                   sprawdz_pola(plansza, i+3, j))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i+1][j] = 2;
+                    plansza[i+2][j] = 2;
+                    plansza[i+3][j] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek w gore
+            if(kierunek == 1)
+            {
+                if((i-3)>0 && sprawdz_pola(plansza, i-1, j) && sprawdz_pola(plansza, i-2, j) && sprawdz_pola(plansza, i-3, j))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i-1][j] = 2;
+                    plansza[i-2][j] = 2;
+                    plansza[i-3][j] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek w prawo
+            {
+                if((j+3)<number_of_elements && sprawdz_pola(plansza, i, j+1) && sprawdz_pola(plansza, i, j+2) &&
+                   sprawdz_pola(plansza, i, j+3))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i][j+1] = 2;
+                    plansza[i][j+2] = 2;
+                    plansza[i][j+3] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek w lewo
+            if(kierunek == 3)
+            {
+                if((j-3)>0 && sprawdz_pola(plansza, i, j-1) && sprawdz_pola(plansza, i, j-2) && sprawdz_pola(plansza, i, j-3))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i][j-1] = 2;
+                    plansza[i][j-2] = 2;
+                    plansza[i][j-3] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek w dol i w prawo
+            if(kierunek == 4)
+            {
+                if(((i+3)<number_of_elements) && ((j+3)<number_of_elements) && sprawdz_pola(plansza, i+1, j+1) &&
+                   sprawdz_pola(plansza, i+2, j+2) && sprawdz_pola(plansza, i+3, j+3))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i+1][j+1] = 2;
+                    plansza[i+2][j+2] = 2;
+                    plansza[i+3][j+3] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek gore i w prawo
+            if(kierunek == 5)
+            {
+                if(((i-3)>0) && ((j+3)<number_of_elements) && sprawdz_pola(plansza, i-1, j+1) && sprawdz_pola(plansza, i-2, j+2) &&
+                   sprawdz_pola(plansza, i-3, j+3))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i-1][j+1] = 2;
+                    plansza[i-2][j+2] = 2;
+                    plansza[i-3][j+3] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek w dol i w lewo
+            if(kierunek == 6)
+            {
+                if(((i+3)<number_of_elements) && ((j-3)>0) && sprawdz_pola(plansza, i+1, j-1) && sprawdz_pola(plansza, i+2, j-2) &&
+                   sprawdz_pola(plansza, i+3, j-3))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i+1][j-1] = 2;
+                    plansza[i+2][j-2] = 2;
+                    plansza[i+3][j-3] = 2;
+                    maszt4=FALSE;
+                }
+            }
+            //! kierunek w gore i w lewo
+            if(kierunek == 7)
+            {
+                if(((i-3)>0) && ((j-3)>0) && sprawdz_pola(plansza, i-1, j-1) && sprawdz_pola(plansza, i-2, j-2) &&
+                   sprawdz_pola(plansza, i-3, j-3))
+                {
+                    plansza[i][j] = 2;
+                    plansza[i-1][j-1] = 2;
+                    plansza[i-2][j-2] = 2;
+                    plansza[i-3][j-3] = 2;
+                    maszt4=FALSE;
+                }
+            }
+        }
+    }
+
+    //! losowanie polozenia dwoch trojmasztowcow
+
+    for(int szt2=0; szt2<2; szt2++)
+    {
+        bool maszt3=TRUE;
+
+        while(maszt3)
+        {
+            int i = rand()%number_of_elements;
+            int j = rand()%number_of_elements;
+            int kierunek = rand()%8;
+
+            if(sprawdz_pola(plansza, i, j))
+            {
+                //! kierunek w dol
+                if(kierunek == 0)
+                {
+                    if((i+2)<number_of_elements && sprawdz_pola(plansza, i+1, j) && sprawdz_pola(plansza, i+2, j))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i+1][j] = 2;
+                        plansza[i+2][j] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w gore
+                if(kierunek == 1)
+                {
+                    if((i-2)>0&& sprawdz_pola(plansza, i-1, j) && sprawdz_pola(plansza, i-2, j))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i-1][j] = 2;
+                        plansza[i-2][j] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w prawo
+                if(kierunek == 2)
+                {
+                    if((j+2)<number_of_elements&& sprawdz_pola(plansza, i, j+1) && sprawdz_pola(plansza, i, j+2))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i][j+1] = 2;
+                        plansza[i][j+2] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w lewo
+                if(kierunek == 3)
+                {
+                    if((j-2)>0&& sprawdz_pola(plansza, i, j-1) && sprawdz_pola(plansza, i, j-2))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i][j-1] = 2;
+                        plansza[i][j-2] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w dol i w prawo
+                if(kierunek == 4)
+                {
+                    if(((i+2)<number_of_elements) && ((j+2)<number_of_elements) && sprawdz_pola(plansza, i+1, j+1) &&
+                       sprawdz_pola(plansza, i+2, j+2))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i+1][j+1] = 2;
+                        plansza[i+2][j+2] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w gore i w prawo
+                if(kierunek == 5)
+                {
+                    if(((i-2)>0) && ((j+2)<number_of_elements) && sprawdz_pola(plansza, i-1, j+1) && sprawdz_pola(plansza, i-2, j+2))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i-1][j+1] = 2;
+                        plansza[i-2][j+2] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w dol i w lewo
+                if(kierunek == 6)
+                {
+                    if(((i+2)<number_of_elements) && ((j-2)>0) && sprawdz_pola(plansza, i+1, j-1) && sprawdz_pola(plansza, i+2, j-2))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i+1][j-1] = 2;
+                        plansza[i+2][j-2] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+                //! kierunek w gore i w lewo
+                if(kierunek == 7)
+                {
+                    if(((i-2)>0) && ((j-2)>0) && sprawdz_pola(plansza, i-1, j-1) && sprawdz_pola(plansza, i-2, j-2))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i-1][j-1] = 2;
+                        plansza[i-2][j-2] = 2;
+                        maszt3=FALSE;
+                    }
+                }
+            }
+        }
+    }
+    //! losowanie polozenia trzech dwumasztowcow
+
+    for(int szt3=0; szt3<3; szt3++)
+    {
+        bool maszt2=TRUE;
+
+        while(maszt2)
+        {
+            int i = rand()%number_of_elements;
+            int j = rand()%number_of_elements;
+            int kierunek = rand()%8;
+
+            if(sprawdz_pola(plansza, i, j))
+            {
+                //! kierunek w dol
+                if(kierunek == 0)
+                {
+                    if((i+1)<number_of_elements && sprawdz_pola(plansza, i+1, j))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i+1][j] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w gore
+                if(kierunek == 1)
+                {
+                    if((i-1)>0 && sprawdz_pola(plansza, i-1, j))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i-1][j] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w prawo
+                if(kierunek == 2)
+                {
+                    if((j+1)<number_of_elements && sprawdz_pola(plansza, i, j+1))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i][j+1] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w lewo
+                if(kierunek == 3)
+                {
+                    if((j-1)>0 && sprawdz_pola(plansza, i, j-1))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i][j-1] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w dol i w prawo
+                if(kierunek == 4)
+                {
+                    if(((i+1)<number_of_elements) && ((j+1)<number_of_elements) && sprawdz_pola(plansza, i+1, j+1))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i+1][j+1] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w gore i w prawo
+                if(kierunek == 5)
+                {
+                    if(((i-1)>0) && ((j+1)<number_of_elements) && sprawdz_pola(plansza, i-1, j+1))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i-1][j+1] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w dol i w lewo
+                if(kierunek == 6)
+                {
+                    if(((i+1)<number_of_elements) && ((j-1)>0) && sprawdz_pola(plansza, i+1, j-1))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i+1][j-1] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+                //! kierunek w gore i w lewo
+                if(kierunek == 7)
+                {
+                    if(((i-1)>0) && ((j-1)>0) && sprawdz_pola(plansza, i-1, j-1))
+                    {
+                        plansza[i][j] = 2;
+                        plansza[i-1][j-1] = 2;
+                        maszt2=FALSE;
+                    }
+                }
+            }
+        }
+    }
+
+    //! losowanie polozenia czterech jednomastowcow
+
+    for(int szt4=0; szt4<4; szt4++)
+    {
+        bool maszt1=TRUE;
+
+        while(maszt1)
+        {
+            int i = rand()%number_of_elements;
+            int j = rand()%number_of_elements;
+
+            if(sprawdz_pola(plansza, i, j))
+            {
+                plansza[i][j] = 2;
+                maszt1 = FALSE;
+            }
+        }
+    }
+}
+
+/*! computer_fire
+/*! funkcja sterujaca przeciwnikiem komputerowym
+*/
+int computer_fire(int plansza[number_of_elements][number_of_elements], BITMAP * screen)
+{
+    int trafione = 20;
+
+    bool losuj = TRUE;
+
+    while(losuj)
+    {
+        int i = rand()%12;
+        int j = rand()%12;
+
+        if(plansza[i][j] == 0)
+        {
+            clear_to_color(screen, makecol(0, 0, 0));
+            textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Pudlo" );
+            plansza[i][j] = 1;
+            losuj = FALSE;
+        }
+
+        if(plansza[i][j] == 2)
+        {
+            textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Trafiony" );
+            rest(1000);
+            plansza[i][j] = 3;
+            trafione--;
+        }
+    }
+
+    return trafione;
+}
+
+/*! read_player_score()
+/*! funkcja wczytujaca najlepsze wyniki graczy z pliku i wyswietlajaca je na ekranie
+*/
+void read_player_score()
+{
+    int scores_amount;
+    char temp[50];
+
+    FILE *player_score;
+    player_score = fopen("player_score.txt", "r");
+
+    if(player_score)
+    {
+        if(fgets(temp, 50, player_score) != NULL);
+            scores_amount = atoi(temp);
+
+        int score_tab[scores_amount];
+
+        for(int i=0; i<scores_amount; i++)
+        {
+            if(fgets(temp, 50, player_score) != NULL);
+                score_tab[i] = atoi(temp);
+        }
+
+        fclose(player_score);
+
+        sort( score_tab, score_tab + scores_amount, greater < int >() );
+
+            textprintf( screen, font, 50, 60, makecol( 255, 0, 0 ), "Najlepsze wyniki:" );
+
+            if(scores_amount>10)
+            {
+                for(int i=1; i<11; i++)
+                {
+                    textprintf( screen, font, 20, 100+i*40, makecol( 255, 255, 255 ), "%d. %d", i, score_tab[i] );
+                }
+            }
+            else
+            {
+                for(int i=1; i<scores_amount; i++)
+                {
+                    textprintf( screen, font, 20, 100+i*40, makecol( 255, 255, 255 ), "%d. %d", i, score_tab[i] );
+                }
+            }
+    }
+    else
+    {
+        textprintf( screen, font, 50, 60, makecol( 255, 0, 0 ), "Brak wynikow do wyswietlenia" );
+    }
+}
+
+/*! save_player_score()
+/*! funkcja zapisujaca najlepsze wyniki graczy do pliku
+*/
+void save_player_score(int score)
+{
+    int scores_amount=0;
+    char temp[50];
+
+    FILE *player_score;
+    player_score = fopen("player_score.txt", "r");
+
+    if(player_score)
+    {
+        if(fgets(temp, 50, player_score) != NULL);
+            scores_amount = atoi(temp);
+
+        int score_tab[scores_amount+1];
+
+        score_tab[scores_amount] = score;
+
+        for(int i=0; i<scores_amount; i++)
+        {
+            if(fgets(temp, 50, player_score) != NULL);
+                score_tab[i] = atoi(temp);
+        }
+
+        fclose(player_score);
+
+        player_score = fopen("player_score.txt", "w");
+
+        sort( score_tab, score_tab + scores_amount, greater < int >() );
+
+        fprintf(player_score, "%d\n", scores_amount+1);
+
+        for(int i=0; i<10; i++) {
+            fprintf(player_score, "%d\n", score_tab[i]);
+        }
+
+        fclose(player_score);
+    }
+    else
+    {
+        fclose(player_score);
+
+        player_score = fopen("player_score.txt", "w");
+        fprintf(player_score, "%d\n", 1);
+        fprintf(player_score, "%d\n", score);
+
+        fclose(player_score);
+    }
+}
+
+/*! main
+/*! funkcja glowna programu
+*/
+int main()
+{
+	init();
+
+    //! bitmapy do obslugi grafiki
+    BITMAP * celownik = NULL;
+    BITMAP * plansza = NULL;
+    BITMAP * menu = NULL;
+    BITMAP * strzalka = NULL;
+    BITMAP * nowagra = NULL;
+
+    //! zapisanie zawartosci plikow graficznych do bitmap oraz sprawdzenie czy udalo sie wykonac ta operacje
+
+    plansza = create_bitmap( window_size_x, window_size_y);
+
+    if( !plansza )
+    {
+        set_gfx_mode( GFX_TEXT, 0, 0, 0, 0 );
+        allegro_message( "Blad tworzenia bufora!" );
+        allegro_exit();
+        return 0;
+    }
+
+    celownik = load_bmp( "celownik.bmp", default_palette );
+
+    if( !celownik )
+    {
+        set_gfx_mode( GFX_TEXT, 0, 0, 0, 0 );
+        allegro_message( "Blad wczytania bitmapy celownika!" );
+        allegro_exit();
+        return 0;
+    }
+
+    menu = load_bmp( "menu.bmp", default_palette );
+
+    if( !menu )
+    {
+        set_gfx_mode( GFX_TEXT, 0, 0, 0, 0 );
+        allegro_message( "Blad wczytania bitmapy menu!" );
+        allegro_exit();
+        return 0;
+    }
+
+    strzalka = load_bmp( "strzalka.bmp", default_palette );
+
+    if( !strzalka )
+    {
+        set_gfx_mode( GFX_TEXT, 0, 0, 0, 0 );
+        allegro_message( "Blad wczytania bitmapy strzalki!" );
+        allegro_exit();
+        return 0;
+    }
+
+    nowagra = load_bmp( "nowagra.bmp", default_palette );
+
+    if( !nowagra )
+    {
+        set_gfx_mode( GFX_TEXT, 0, 0, 0, 0 );
+        allegro_message( "Blad wczytania bitmapy menu nowej gry!" );
+        allegro_exit();
+        return 0;
+    }
+
+    //! tablice dwuwymiarowe do przechowywania informacji o stanie pol planszy
+    int plansza1[number_of_elements][number_of_elements];
+    int plansza2[number_of_elements][number_of_elements];
+
+    //! zmienne do obslugi menu programu
+    int menu_pos=0, menu_pos_hid=1, nowagra_pos=0, nowagra_pos_hid=1;
+
+    //! zmienne do sterowania polozeniem kursora w menu
+    int strzalka_x = 0, strzalka_y = box_size;
+
+    //! zmienna typu bool do sprawdzenia statnu potrzeby odswiezenia ekranu
+    bool refresh_screen = FALSE;
+
+    //! menu glowne programu
+    while(menu_pos!=4)
+    {
+        if(refresh_screen)
+        {
+            clear_to_color(screen, makecol(0,0,0));
+            clear_to_color(plansza, makecol(0,0,0));
+            refresh_screen = FALSE;
+        }
+
+        if( key[ KEY_UP ] )
+        {
+            if(strzalka_y>(box_size*1.5))
+            {
+                strzalka_y=strzalka_y-(box_size*1.5);
+                blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                menu_pos_hid-=1;
+            }
+        }
+
+        if( key[ KEY_DOWN ] )
+        {
+            if(strzalka_y<(((number_of_elements/2)-1)*box_size))
+            {
+                strzalka_y=strzalka_y+(box_size*1.5);
+                blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                menu_pos_hid+=1;
+            }
+        }
+
+        if( key[ KEY_ENTER ] )
+        {
+            menu_pos = menu_pos_hid;
+            blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+        }
+
+        rest(200);
+        masked_blit( menu, screen, 0, 0, 60, 0, menu->w, menu->h );
+        masked_blit( strzalka, screen, 0, 0, strzalka_x, strzalka_y, menu->w, menu->h );
+
+        //! menu rozpoczynania nowej gry
+        if(menu_pos == 1)
+        {
+            clear_to_color(screen, makecol(0,0,0));
+            clear_to_color(plansza, makecol(0,0,0));
+
+            strzalka_x = 0;
+            strzalka_y = box_size;
+
+            while(nowagra_pos!=3)
+            {
+                if( key[ KEY_UP ] )
+                {
+                    if(strzalka_y>box_size)
+                    {
+                        strzalka_y=strzalka_y-(box_size*1.5);
+                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                        nowagra_pos_hid-=1;
+                    }
+                }
+
+                if( key[ KEY_DOWN ] )
+                {
+                    if(strzalka_y<(((number_of_elements/4)-1)*box_size))
+                    {
+                        strzalka_y=strzalka_y+(box_size*1.5);
+                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                        nowagra_pos_hid+=1;
+                    }
+                }
+
+                if( key[ KEY_ENTER ] )
+                {
+                    nowagra_pos = 3;
+                    blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                }
+
+                rest(200);
+                masked_blit( nowagra, screen, 0, 0, 60, 0, nowagra->w, nowagra->h );
+                masked_blit( strzalka, screen, 0, 0, strzalka_x, strzalka_y, menu->w, menu->h );
+            }
+            //! rozpoczecie nowej gry przeciwko graczowi komputerowemu
+            if(nowagra_pos_hid == 1)
+            {
+                int trafione1 = 20;
+                int trafione2 = 20;
+                int start = 1;
+                int kolej = 0;
+
+                int player_score = 100;
+
+                generate_ships(plansza1);
+                generate_ships(plansza2);
+
+                bool refresh_map = TRUE;
+                bool next = FALSE;
+
+                while((trafione1>0) || (computer_fire(plansza1, screen)>0))
+                {
+                    int celownik_x = box_size, celownik_y = box_size*2;
+
+                    clear_to_color(screen, makecol(0,0,0));
+
+                    if(start == 1)
+                    {
+                        print_map(plansza1);
+
+                        while( !key[ KEY_ENTER ])
+                        {
+                            textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Twoja plansza:" );
+                            textprintf( screen, font, 20, 30, makecol( 255, 255, 255 ), "Nacisnij enter aby przejsc dalej" );
+                            blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                        }
+                        start = 0;
+                    }
+
+                    blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+
+                    refresh_map = TRUE;
+                    next = TRUE;
+
+                        if(kolej==0)
+                        {
+                            while(next)
+                            {
+                                if(refresh_map)
+                                {
+                                    clear_to_color(screen, makecol(0,0,0));
+                                    clear_to_color(plansza, makecol(0,0,0));
+                                    print_map_hid(plansza2);
+                                    blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    refresh_map = FALSE;
+                                }
+
+                                if( key[ KEY_LEFT ] )
+                                {
+                                    if(celownik_x>box_size)
+                                    {
+                                        celownik_x=celownik_x-box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_RIGHT ] )
+                                {
+                                    if(celownik_x<(number_of_elements*box_size))
+                                    {
+                                        celownik_x=celownik_x+box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_UP ] )
+                                {
+                                    if(celownik_y>2*box_size)
+                                    {
+                                        celownik_y=celownik_y-box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_DOWN ] )
+                                {
+                                    if(celownik_y<(number_of_elements*box_size)+box_size)
+                                    {
+                                        celownik_y=celownik_y+box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_SPACE ] )
+                                {
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 1)
+                                    {
+                                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Juz trafiles w to miejsce" );
+                                        //refresh_map = TRUE;
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 0)
+                                    {
+                                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Pudlo" );
+                                        plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] = 1;
+
+                                        rest(500);
+
+                                        refresh_map = TRUE;
+                                        next = FALSE;
+                                        player_score--;
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 3)
+                                    {
+                                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Statek juz sie pali" );
+                                        //refresh_map = TRUE;
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 2)
+                                    {
+                                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Trafiony" );
+                                        plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] = 3;
+
+                                        rest(500);
+                                        trafione1--;
+                                        refresh_map = TRUE;
+                                        player_score+=5;
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 4)
+                                    {
+                                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Statek juz sie spalil" );
+                                    }
+                                }
+
+                                rest(200);
+                                masked_blit( celownik, screen, 0, 0, celownik_x, celownik_y, celownik->w, celownik->h );
+                            }
+                            kolej = 1;
+                        }
+                        else
+                        {
+                            print_map(plansza1);
+
+                            rest(500);
+
+                            computer_fire(plansza1, screen);
+
+                            print_map(plansza1);
+                            refresh_map = FALSE;
+
+                            while( !key[ KEY_ENTER ])
+                            {
+                                textprintf( screen, font, 20, 30, makecol( 255, 255, 255 ), "Nacisnij enter aby przejsc dalej" );
+                                blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                            }
+
+                            kolej = 0;
+                        }
+                }
+
+                if(trafione1 == 0)
+                {
+                    textprintf( screen, font, 200, 20, makecol( 255, 255, 255 ), "Wygrales!" );
+                }
+
+                if(trafione2 == 0)
+                {
+                    textprintf( screen, font, 200, 20, makecol( 255, 255, 255 ), "Przegrales!" );
+                }
+
+                nowagra_pos_hid = 0;
+                nowagra_pos = 0;
+
+            }
+            //! rozpoczecie gry przeciwko drugiemu graczowi
+            if(nowagra_pos_hid == 2)
+            {
+                int trafione1 = 20;
+                int trafione2 = 20;
+                int start = 1;
+                int kolej = 0;
+
+                int player_score1 = 100, player_score2 = 100;
+
+                bool refresh_map = TRUE;
+                bool next = FALSE;
+
+                while((trafione1>0) || (trafione2>0))
+                {
+                    int celownik_x = box_size, celownik_y = box_size*2;
+
+                    clear_to_color(screen, makecol(0,0,0));
+
+                    if(start == 1)
+                    {
+                        while( !key[ KEY_ENTER ])
+                        {
+                            textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ),
+                                       "Za 5 sekund zostanie pokazana plansza gracza 1:" );
+                            rest(5000);
+
+                            clear_to_color(screen, makecol(0, 0, 0));
+                            clear_to_color(plansza, makecol(0, 0, 0));
+
+                            generate_ships(plansza1);
+                            print_map(plansza1);
+
+                            while( !key[ KEY_ENTER ])
+                            {
+                                textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Plansza gracza 1:" );
+                                textprintf( screen, font, 20, 30, makecol( 255, 255, 255 ),
+                                           "Nacisnij enter aby pokazac plansze gracza 2" );
+                                blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                            }
+
+                            clear_to_color(screen, makecol(0, 0, 0));
+                            clear_to_color(plansza, makecol(0, 0, 0));
+
+                            rest(500);
+
+                            generate_ships(plansza2);
+                            print_map(plansza2);
+
+                            while( !key[ KEY_ENTER ])
+                            {
+                                textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Plansza gracza 2:" );
+                                textprintf( screen, font, 20, 30, makecol( 255, 255, 255 ), "Nacisnij enter aby przejsc dalej" );
+                                blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                            }
+                        }
+                        start = 0;
+                    }
+
+                    blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+
+                    refresh_map = TRUE;
+                    next = TRUE;
+
+                        if(kolej==0)
+                        {
+                            while(next)
+                            {
+                                if(refresh_map)
+                                {
+                                    clear_to_color(screen, makecol(0,0,0));
+                                    clear_to_color(plansza, makecol(0,0,0));
+                                    print_map_hid(plansza2);
+                                    blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    refresh_map = FALSE;
+                                }
+
+                                textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Kolej gracza 1" );
+
+                                if( key[ KEY_LEFT ] )
+                                {
+                                    if(celownik_x>box_size)
+                                    {
+                                        celownik_x=celownik_x-box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_RIGHT ] )
+                                {
+                                    if(celownik_x<(number_of_elements*box_size))
+                                    {
+                                        celownik_x=celownik_x+box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_UP ] )
+                                {
+                                    if(celownik_y>2*box_size)
+                                    {
+                                        celownik_y=celownik_y-box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_DOWN ] )
+                                {
+                                    if(celownik_y<(number_of_elements*box_size)+box_size)
+                                    {
+                                        celownik_y=celownik_y+box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_SPACE ] )
+                                {
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 1)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Juz trafiles w to miejsce" );
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 0)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Pudlo" );
+                                        plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] = 1;
+
+                                        rest(500);
+
+                                        refresh_map = TRUE;
+                                        next = FALSE;
+                                        player_score1--;
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 3)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Statek juz sie pali" );
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 2)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Trafiony" );
+                                        plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] = 3;
+
+                                        rest(500);
+                                        trafione1--;
+                                        refresh_map = TRUE;
+                                        player_score1+=5;
+                                    }
+
+                                    if(plansza2[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 4)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Statek juz sie spalil" );
+                                    }
+                                }
+
+                                rest(200);
+                                masked_blit( celownik, screen, 0, 0, celownik_x, celownik_y, celownik->w, celownik->h );
+                            }
+                            kolej = 1;
+                        }
+                        else
+                        {
+                            while(next)
+                            {
+                                if(refresh_map)
+                                {
+                                    clear_to_color(screen, makecol(0,0,0));
+                                    clear_to_color(plansza, makecol(0,0,0));
+                                    print_map_hid(plansza1);
+                                    blit( screen, plansza, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    refresh_map = FALSE;
+                                }
+
+                                textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Kolej gracza 2" );
+
+                                if( key[ KEY_LEFT ] )
+                                {
+                                    if(celownik_x>box_size)
+                                    {
+                                        celownik_x=celownik_x-box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_RIGHT ] )
+                                {
+                                    if(celownik_x<(number_of_elements*box_size))
+                                    {
+                                        celownik_x=celownik_x+box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_UP ] )
+                                {
+                                    if(celownik_y>2*box_size)
+                                    {
+                                        celownik_y=celownik_y-box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_DOWN ] )
+                                {
+                                    if(celownik_y<(number_of_elements*box_size)+box_size)
+                                    {
+                                        celownik_y=celownik_y+box_size;
+                                        blit( plansza, screen, 0, 0, 0, 0, window_size_x, window_size_y );
+                                    }
+                                }
+
+                                if( key[ KEY_SPACE ] )
+                                {
+                                    if(plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 1)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Juz trafiles w to miejsce" );
+                                    }
+
+                                    if(plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 0)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Pudlo" );
+                                        plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] = 1;
+
+                                        rest(500);
+
+                                        refresh_map = TRUE;
+                                        next = FALSE;
+                                        player_score2--;
+                                    }
+
+                                    if(plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 3)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Statek juz sie pali" );
+                                    }
+
+                                    if(plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 2)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Trafiony" );
+                                        plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] = 3;
+
+                                        rest(500);
+                                        trafione1--;
+                                        refresh_map = TRUE;
+                                        player_score2+=5;
+                                    }
+
+                                    if(plansza1[(celownik_y-2*box_size)/box_size][(celownik_x-box_size)/box_size] == 4)
+                                    {
+                                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Statek juz sie spalil" );
+                                    }
+                                }
+
+                                rest(200);
+                                masked_blit( celownik, screen, 0, 0, celownik_x, celownik_y, celownik->w, celownik->h );
+                            }
+                            kolej = 0;
+                        }
+                }
+
+                if(trafione1 == 0)
+                {
+                    clear_to_color(screen, makecol(0, 0, 0));
+                    clear_to_color(plansza, makecol(0, 0, 0));
+
+                    while( !key[KEY_ESC])
+                    {
+                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Wygral gracz 1 z wynikiem %d punktow", player_score1 );
+                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Nacisnij ESC aby wrocic do menu glownego" );
+                    }
+
+                    save_player_score(player_score1);
+                    clear_to_color(screen, makecol(0, 0, 0));
+                }
+
+                if(trafione2 == 0)
+                {
+                    clear_to_color(screen, makecol(0, 0, 0));
+                    clear_to_color(plansza, makecol(0, 0, 0));
+
+                    while( !key[KEY_ESC])
+                    {
+                        textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Wygral gracz 2 z wynikiem %d punktow", player_score2 );
+                        textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "Nacisnij ESC aby wrocic do menu glownego" );
+                    }
+
+                    save_player_score(player_score2);
+                    clear_to_color(screen, makecol(0, 0, 0));
+                }
+
+                nowagra_pos_hid = 0;
+                nowagra_pos = 0;
+
+            }
+
+            refresh_screen = TRUE;
+            menu_pos = 0;
+            strzalka_x = 0;
+            strzalka_y = box_size;
+        }
+        //! wyswietlenie najlepszych wynikow uzyskanych przez graczy
+        if(menu_pos == 2)
+        {
+            clear_to_color(screen, makecol(0, 0, 0));
+
+            read_player_score();
+
+            while( !key[KEY_ESC])
+            {
+                textprintf( screen, font, 20, 20, makecol( 255, 255, 255 ), "Nacisnij ESC aby wrocic do menu glownego" );
+            }
+
+            menu_pos = 0;
+            clear_to_color(screen, makecol(0, 0, 0));
+        }
+        //! wyswietlenie instrukcji obslugi gry
+        if(menu_pos == 3)
+        {
+            clear_to_color(screen, makecol(0, 0, 0));
+            textprintf( screen, font, 20, 20, makecol( 255, 0, 0 ), "INSTRUKCJA GRY: " );
+            textprintf( screen, font, 20, 50, makecol( 255, 255, 255 ), "1. ABY ROZPOCZAC GRE NALEZY W MENU WYBRAC OPCJE NOWA GRA" );
+            textprintf( screen, font, 20, 80, makecol( 255, 255, 255 ), "2. TRYBY GRY:" );
+            textprintf( screen, font, 20, 110, makecol( 255, 255, 255 ), "3. Z KOMPUTEREM: GRACZ OTRZYMUJE LOSOWO WYGENEROWANA PLANSZE, A NASTEPNIE" );
+            textprintf( screen, font, 45, 130, makecol( 255, 255, 255 ), "PROBUJE ZNISZCZYC WSZYSTKIE STATKI PRZECIWNIKA STEROWANEGO PRZEZ KOMPUTER" );
+            textprintf( screen, font, 20, 160, makecol( 255, 255, 255 ), "4. Z INNYM GRACZEM: OBAJ GRACZE OTRZYMUJA LOSOWO WYGENEROWANA PLANSZE" );
+            textprintf( screen, font, 45, 180, makecol( 255, 255, 255 ), "A NASTEPNIE GRAJAC NA ZMIANE PROBUJA ZNISZCZYC STATKI PRZECIWNIKA" );
+            textprintf( screen, font, 20, 210, makecol( 255, 255, 255 ), "5. WYBIERANIE OPCJI W MENU I W GRZE  JEST OBSLUGIWANE KLAWISZEM ENTER" );
+            textprintf( screen, font, 20, 240, makecol( 255, 255, 255 ), "6. STRZELANIE DO STATKOW W GRZE JEST OBSLUGIWANE KLAWISZEM SPACJA" );
+            textprintf( screen, font, 20, 270, makecol( 255, 255, 255 ), "7. GRA KONCZY SIE WRAZ Z ZNISZCZENIEM WSZYSTKICH STATKOW PRZECIWNIKA" );
+            textprintf( screen, font, 20, 300, makecol( 255, 255, 255 ), "8. W MENU W NAJLEPSZYCH WYNIKACH PREZENTOWANE JEST TOP 10 NAJLEPSZYCH GRACZY" );
+            textprintf( screen, font, 20, 330, makecol( 255, 255, 255 ), "9. PO ZAKONCZENIU GRY PREZENTOWANA JEST PUNKTACJA GRACZY" );
+            textprintf( screen, font, 20, 360, makecol( 255, 255, 255 ), "10. JESLI GRACZ UZYSKAL WYNIK LEPSZY NIZ POZYCJA 10 W NAJLEPSZYCH WYNIKACH" );
+            textprintf( screen, font, 55, 380, makecol( 255, 255, 255 ), "TO ZOSTAJE ON DOPISANY DO LISTY NAJLEPSZYCH GRACZY" );
+            textprintf( screen, font, 20, 410, makecol( 255, 255, 255 ), "11. KLAWISZ ESCAPE SLUZY DO ZAKONCZENIA AKTUALNIE WYKONYWANEJ CZYNNOSCI" );
+
+            while( !key[KEY_ESC])
+            {
+                textprintf( screen, font, 20, 440, makecol( 255, 255, 255 ), "Nacisnij ESC aby wrocic do menu glownego" );
+            }
+
+            menu_pos = 0;
+            clear_to_color(screen, makecol(0, 0, 0));
+        }
+    }
+
+    //! usuniecie bitmap obslugujacych elementy graficzne
+    destroy_bitmap(celownik);
+    destroy_bitmap(plansza);
+    destroy_bitmap(menu);
+    destroy_bitmap(nowagra);
+    destroy_bitmap(strzalka);
+
+	deinit();
+	return 0;
+}
+END_OF_MAIN()

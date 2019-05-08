@@ -1,0 +1,434 @@
+\hypertarget{_wypozyczenie__struktura_8c}{}\section{Wypozyczenie\+\_\+struktura.\+c File Reference}
+\label{_wypozyczenie__struktura_8c}\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_f_i_l_m_y}{F\+I\+L\+MY}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_wypozyczenie__struktura_8c_a802c84452854799df868a4a660d3d58a}{ilosc}~50
+\item 
+\#define \hyperlink{_wypozyczenie__struktura_8c_aa23c661441688350614bd6a350d2b6ff}{size}~20
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_f_i_l_m_y}{F\+I\+L\+MY} \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_wypozyczenie__struktura_8c_ae307ee3b083634948997da8bc917272a}{Wyswietlenie3} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head3)
+\item 
+\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$ \hyperlink{_wypozyczenie__struktura_8c_a0f9c2bd1f32353f45524b227906f3b90}{szukanie\+\_\+elemetu} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head, int numer\+\_\+karty)
+\item 
+void \hyperlink{_wypozyczenie__struktura_8c_a37f5e43c82cd13e1b7abe9e94ceb220f}{usuwanie\+\_\+elementu} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$previous)
+\item 
+\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$ \hyperlink{_wypozyczenie__struktura_8c_ac857fcb14c51dd277405233ca8b532ee}{usuwanie\+\_\+poczatku} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head)
+\item 
+\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$ \hyperlink{_wypozyczenie__struktura_8c_a54f35a22d721cc823b6f702a7f9a4af8}{Usuwanie3} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head, int numer\+\_\+karty)
+\item 
+void \hyperlink{_wypozyczenie__struktura_8c_aa31ef7d4cc73929d2e602c3eea64ef3d}{Oddawanie} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$$\ast$head3, \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head2, \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\item 
+\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$ \hyperlink{_wypozyczenie__struktura_8c_ab5c949b44a7c48f65122f972f095aabc}{create\+\_\+list\+\_\+wypozyczenia} (int nr\+\_\+klienta\+\_\+tmp, int nr\+\_\+filmu\+\_\+tmp, char do\+\_\+kiedy\mbox{[}\hyperlink{_wypozyczenie__struktura_8c_a802c84452854799df868a4a660d3d58a}{ilosc}\mbox{]})
+\item 
+\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$ \hyperlink{_wypozyczenie__struktura_8c_a337d7a89040791d0207311dd028dd878}{add\+\_\+node\+\_\+wypozyczenia} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head, int nr\+\_\+klienta\+\_\+tmp, int nr\+\_\+filmu\+\_\+tmp, char do\+\_\+kiedy\mbox{[}\hyperlink{_wypozyczenie__struktura_8c_a802c84452854799df868a4a660d3d58a}{ilosc}\mbox{]})
+\item 
+void \hyperlink{_wypozyczenie__struktura_8c_a487cc81da11c07e747b6cd6c75a80e27}{Wypozyczanie} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$$\ast$head3, \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head2, \hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$head)
+\item 
+void \hyperlink{_wypozyczenie__struktura_8c_ab4fff1668d91ca66426b37e7fa40e136}{Zapisywanie3} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$head3)
+\item 
+void \hyperlink{_wypozyczenie__struktura_8c_a0aef5bc7507ebf85463a57cb4527d56d}{Wczytanie3} (\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$$\ast$head3)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a802c84452854799df868a4a660d3d58a}\label{_wypozyczenie__struktura_8c_a802c84452854799df868a4a660d3d58a}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!ilosc@{ilosc}}
+\index{ilosc@{ilosc}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{ilosc}{ilosc}}
+{\footnotesize\ttfamily \#define ilosc~50}
+
+
+
+Definition at line 9 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_aa23c661441688350614bd6a350d2b6ff}\label{_wypozyczenie__struktura_8c_aa23c661441688350614bd6a350d2b6ff}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!size@{size}}
+\index{size@{size}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \#define size~20}
+
+
+
+Definition at line 10 of file Wypozyczenie\+\_\+struktura.\+c.
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}\label{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Filmy@{Filmy}}
+\index{Filmy@{Filmy}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Filmy}{Filmy}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_f_i_l_m_y}{F\+I\+L\+MY} \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}}
+
+
+
+Definition at line 12 of file Wypozyczenie\+\_\+struktura.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a337d7a89040791d0207311dd028dd878}\label{_wypozyczenie__struktura_8c_a337d7a89040791d0207311dd028dd878}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!add\+\_\+node\+\_\+wypozyczenia@{add\+\_\+node\+\_\+wypozyczenia}}
+\index{add\+\_\+node\+\_\+wypozyczenia@{add\+\_\+node\+\_\+wypozyczenia}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{add\+\_\+node\+\_\+wypozyczenia()}{add\_node\_wypozyczenia()}}
+{\footnotesize\ttfamily \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}$\ast$ add\+\_\+node\+\_\+wypozyczenia (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head,  }\item[{int}]{nr\+\_\+klienta\+\_\+tmp,  }\item[{int}]{nr\+\_\+filmu\+\_\+tmp,  }\item[{char}]{do\+\_\+kiedy\mbox{[}ilosc\mbox{]} }\end{DoxyParamCaption})}
+
+funkcja dodajaca kolejne elementy do listy z wypozyczeniami zalokowanie pamieci na wskaznik
+
+jezeli jest element
+
+przypisujemy odpowiednie dane
+
+nastepnemu elementwoi z new\+\_\+node przypisujemy nastepny element z head
+
+przypisujemy nastepny element head wartosc new\+\_\+node
+
+zwracamy wskaznik head 
+
+Definition at line 159 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_ab5c949b44a7c48f65122f972f095aabc}\label{_wypozyczenie__struktura_8c_ab5c949b44a7c48f65122f972f095aabc}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!create\+\_\+list\+\_\+wypozyczenia@{create\+\_\+list\+\_\+wypozyczenia}}
+\index{create\+\_\+list\+\_\+wypozyczenia@{create\+\_\+list\+\_\+wypozyczenia}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{create\+\_\+list\+\_\+wypozyczenia()}{create\_list\_wypozyczenia()}}
+{\footnotesize\ttfamily \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}$\ast$ create\+\_\+list\+\_\+wypozyczenia (\begin{DoxyParamCaption}\item[{int}]{nr\+\_\+klienta\+\_\+tmp,  }\item[{int}]{nr\+\_\+filmu\+\_\+tmp,  }\item[{char}]{do\+\_\+kiedy\mbox{[}ilosc\mbox{]} }\end{DoxyParamCaption})}
+
+funkcja tworzaca liste z wypozyczeniami zalokowanie pamieci na wskaznik
+
+jezeli jest pierwszy element
+
+przypisujemy dane do odpowiednich zmiennych
+
+nastepnemu elementowi przypisujemy N\+U\+LL
+
+zwracamy wskaznik na next 
+
+Definition at line 146 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_aa31ef7d4cc73929d2e602c3eea64ef3d}\label{_wypozyczenie__struktura_8c_aa31ef7d4cc73929d2e602c3eea64ef3d}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Oddawanie@{Oddawanie}}
+\index{Oddawanie@{Oddawanie}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Oddawanie()}{Oddawanie()}}
+{\footnotesize\ttfamily void Oddawanie (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$$\ast$}]{head3,  }\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head2,  }\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja oddajaca filmy przypisanie wskaznikowi tmp2 wskaznik head2
+
+przypisanie wskaznikowi tmp wskaznik head
+
+przypisanie wskaznikowi tmp3 wskaznik head3
+
+wyczyszczenie ekranu
+
+wyswietlenie opcji dla uzytkownika
+
+pobranie numeru karty od uzytkownika
+
+dopóki istnieje lista i numer karty sie nie zgadza
+
+jezeli nie ma wskaznika nastepnego
+
+wyswietlamy komunikat
+
+pobieramy klawisz od uzytkownika
+
+pobieramy klawisz od uzytkownika
+
+wracamy
+
+przypisujemy wskaznikowi tmp wartosc wskaznika nastepengo aby poprawnie przechodzic po liscie
+
+wyswietlenie opcji dla uzytkownika
+
+pobranie id filmu od uzytkownika
+
+dopóki istnieje lista i id filmu sie nie zgadza
+
+jezeli nie ma wskaznika nastepnego
+
+wyswietlamy komunikat
+
+pobieramy klawisz od uzytkownika
+
+pobieramy klawisz od uzytkownika
+
+wracamy
+
+przypisujemy wskaznikowi tmp wartosc wskaznika nastepengo aby poprawnie przechodzic po liscie
+
+wyczyszczenie ekranu
+
+wyswietlenie danych
+
+wyswietlenie opcji dla uzytkownika
+
+przypisanie i pobranego od uzytkownika klawisza
+
+jezeli 1
+
+wywołujemy funkcje usuwajaca
+
+zwiekszamy liczbe egzemplarzy o 1
+
+zmniejszamy liczbe wypozyczen o 1
+
+przypisujemy wskaznikowi tmp wartosc wskaznika nastepengo aby poprawnie przechodzic po liscie
+
+pobieramy klawisz od uzytkownika 
+
+Definition at line 90 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a0f9c2bd1f32353f45524b227906f3b90}\label{_wypozyczenie__struktura_8c_a0f9c2bd1f32353f45524b227906f3b90}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!szukanie\+\_\+elemetu@{szukanie\+\_\+elemetu}}
+\index{szukanie\+\_\+elemetu@{szukanie\+\_\+elemetu}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{szukanie\+\_\+elemetu()}{szukanie\_elemetu()}}
+{\footnotesize\ttfamily \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}$\ast$ szukanie\+\_\+elemetu (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head,  }\item[{int}]{numer\+\_\+karty }\end{DoxyParamCaption})}
+
+funkcja szukajaca element przypisanie wskazniwkoi previous wartosci null
+
+dopóki istnieje lista i numer\+\_\+karty jest zgodny
+
+wartosci previous przypisujemy wartosc head
+
+wartosci head przypisujemy wartosc nastepnego elementu
+
+zwracamy wskaznik previous 
+
+Definition at line 51 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a54f35a22d721cc823b6f702a7f9a4af8}\label{_wypozyczenie__struktura_8c_a54f35a22d721cc823b6f702a7f9a4af8}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Usuwanie3@{Usuwanie3}}
+\index{Usuwanie3@{Usuwanie3}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Usuwanie3()}{Usuwanie3()}}
+{\footnotesize\ttfamily \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}$\ast$ Usuwanie3 (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head,  }\item[{int}]{numer\+\_\+karty }\end{DoxyParamCaption})}
+
+funkcja usuwajaca jezeli istnieje lista
+
+numer karty sie zgadza z pierwsyzm elementem
+
+zwracamy i wywołujemy odpowiednia funkcje
+
+jezeli sie nie zgadza szukamy elementu na liscie
+
+wywołujemy odpowiednia funkcje
+
+zwracamy wartosc wskaznika head 
+
+Definition at line 76 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a37f5e43c82cd13e1b7abe9e94ceb220f}\label{_wypozyczenie__struktura_8c_a37f5e43c82cd13e1b7abe9e94ceb220f}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!usuwanie\+\_\+elementu@{usuwanie\+\_\+elementu}}
+\index{usuwanie\+\_\+elementu@{usuwanie\+\_\+elementu}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{usuwanie\+\_\+elementu()}{usuwanie\_elementu()}}
+{\footnotesize\ttfamily void usuwanie\+\_\+elementu (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{previous }\end{DoxyParamCaption})}
+
+funkcja usuwajaca srodkowy albo ostatni element przypisanie wskaznikowi node wartosc wskaznika nastepnego previous
+
+jezeli istnieje lista
+
+przypisanie wskaznikowi na nastepny element previous wartosci wskaznika nastepnego node
+
+usuwamy zawartosci wskaznik node 
+
+Definition at line 61 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_ac857fcb14c51dd277405233ca8b532ee}\label{_wypozyczenie__struktura_8c_ac857fcb14c51dd277405233ca8b532ee}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!usuwanie\+\_\+poczatku@{usuwanie\+\_\+poczatku}}
+\index{usuwanie\+\_\+poczatku@{usuwanie\+\_\+poczatku}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{usuwanie\+\_\+poczatku()}{usuwanie\_poczatku()}}
+{\footnotesize\ttfamily \hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy}$\ast$ usuwanie\+\_\+poczatku (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head }\end{DoxyParamCaption})}
+
+usuwanie poczatkowego elementu przypisanie wskaznikowi next wartosci nastepnego wskaznika next
+
+usniecie zawartosci wskaznika head
+
+zwrócenie wskaznika next 
+
+Definition at line 70 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a0aef5bc7507ebf85463a57cb4527d56d}\label{_wypozyczenie__struktura_8c_a0aef5bc7507ebf85463a57cb4527d56d}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Wczytanie3@{Wczytanie3}}
+\index{Wczytanie3@{Wczytanie3}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wczytanie3()}{Wczytanie3()}}
+{\footnotesize\ttfamily void Wczytanie3 (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$$\ast$}]{head3 }\end{DoxyParamCaption})}
+
+funkcja wczytujaca przypisanie wskaznikowi head3 null
+
+wskaznikowi wczytaj przypisujemy N\+U\+LL na poczatek
+
+przypisanie pliku do otworzenia
+
+wskaznikowi wczytaj przypisujemy otwarcie pliku, r-\/read
+
+jezeli nie ma pliku
+
+to wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+dopóki w pliku są linijki i funkcja nie zwróci E\+OF
+
+wczytujemy dane
+
+jezeli lista jest pusta
+
+wywołujemy odpowiednia funkcje
+
+jezeli jest wywołujemy odpowiednia funkcje 
+
+Definition at line 267 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_a487cc81da11c07e747b6cd6c75a80e27}\label{_wypozyczenie__struktura_8c_a487cc81da11c07e747b6cd6c75a80e27}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Wypozyczanie@{Wypozyczanie}}
+\index{Wypozyczanie@{Wypozyczanie}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wypozyczanie()}{Wypozyczanie()}}
+{\footnotesize\ttfamily void Wypozyczanie (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$$\ast$}]{head3,  }\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head2,  }\item[{\hyperlink{_klient__struktura_8c_afe8e3fcee1af6d1ee1c5346ef4a09cbf}{Klient} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja do wypozyczania filmów wskaznikowi tmp2 przypisujemy wartosc wskaznika head2
+
+wskaznikowi tmp przypisujemy wartosc wskaznika head
+
+wyczyszczenie ekranu
+
+wyswietlenie opcji dla uzytkownika
+
+pobranie numeru karty od uzytkownika
+
+dopóki lista nie jest pusta i numer karty zgadza się
+
+jezeli nie ma wskaznika nastepnego
+
+wyswietlamy komunikat
+
+pobieramy klawisz od uzytkownika
+
+wracamy
+
+przypisujemy wskaznikowi tmp wartosc wskaznika nastepengo aby poprawnie przechodzic po liscie
+
+wyswietlenie opcji dla uzytkownika
+
+pobranie numeru karty od uzytkownika
+
+dopóki lista nie jest pusta i id filmu zgadza się
+
+jezeli nie ma wskaznika nastepnego
+
+wyswietlamy komunikat
+
+pobieramy klawisz od uzytkownika
+
+wracamy
+
+przypisujemy wskaznikowi tmp wartosc wskaznika nastepengo aby poprawnie przechodzic po liscie
+
+wyczyszczenie ekranu
+
+wyswietlenie opcji dla uzytkownika
+
+przypisanie i pobranego od uzytkownika klawisza
+
+pobranie od uzytkownika klawisza
+
+jezeli 1
+
+zmniejszenie liczby egzemplarzy
+
+zwiekszenie liczby wypozyczen
+
+pobranie daty od uzytkownika
+
+pobranie od uzytkownika klawisza
+
+jezeli istnieje lista
+
+wywołujemy odpowiednia funkcje
+
+jezeli nie istnieje wywołujemy odpowiednia funkcje 
+
+Definition at line 173 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_ae307ee3b083634948997da8bc917272a}\label{_wypozyczenie__struktura_8c_ae307ee3b083634948997da8bc917272a}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Wyswietlenie3@{Wyswietlenie3}}
+\index{Wyswietlenie3@{Wyswietlenie3}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wyswietlenie3()}{Wyswietlenie3()}}
+{\footnotesize\ttfamily void Wyswietlenie3 (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head3 }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca przypisanie wskaznikowi tmp3 wartosci haed3
+
+zmienna czas ze struktury time\+\_\+t
+
+funkcja zwraca czas lokany do zmiennej czas
+
+do daty przypisywany jest lokalny czas z zmiennej czas
+
+jezeli lista jest pusta
+
+wypisujemy komunikat
+
+wyczyszczenie ekranu
+
+dopóki lista nie jest pusta
+
+wyswietlamy dane
+
+wskaznikowi tmp3 przypisujemy wartosc nastepnego elemenut aby poprawnie przechodzic po liscie
+
+pobranie klawisza od uzytkownika 
+
+Definition at line 21 of file Wypozyczenie\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_wypozyczenie__struktura_8c_ab4fff1668d91ca66426b37e7fa40e136}\label{_wypozyczenie__struktura_8c_ab4fff1668d91ca66426b37e7fa40e136}} 
+\index{Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}!Zapisywanie3@{Zapisywanie3}}
+\index{Zapisywanie3@{Zapisywanie3}!Wypozyczenie\+\_\+struktura.\+c@{Wypozyczenie\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Zapisywanie3()}{Zapisywanie3()}}
+{\footnotesize\ttfamily void Zapisywanie3 (\begin{DoxyParamCaption}\item[{\hyperlink{_wypozyczenie__struktura_8c_aedefc373cfe2ed0d3900e3eeae23e46c}{Filmy} $\ast$}]{head3 }\end{DoxyParamCaption})}
+
+funkcja zapisujaca wskaznikowi zapisz przypisujemy N\+U\+LL na poczatek
+
+przypisanie pliku do zapisu
+
+jezeli lista jest pusta
+
+wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+jezeli nie jest, do wskaznika zapisz otwieramy plik to zapisu, w-\/write
+
+jezeli nie ma pliku
+
+wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+wskaznikowi tmp przypisujemy wartosc head
+
+dopoki lista nie jst pusta
+
+zapisujemy dane
+
+wskanizkowi tmp przypisujemy wartosc nastepna aby poprawnie przechodzic po lisice 
+
+Definition at line 230 of file Wypozyczenie\+\_\+struktura.\+c.
+

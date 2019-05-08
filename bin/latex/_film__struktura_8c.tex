@@ -1,0 +1,1198 @@
+\hypertarget{_film__struktura_8c}{}\section{Film\+\_\+struktura.\+c File Reference}
+\label{_film__struktura_8c}\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_f_i_l_m}{F\+I\+LM}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_film__struktura_8c_a802c84452854799df868a4a660d3d58a}{ilosc}~50
+\item 
+\#define \hyperlink{_film__struktura_8c_aa23c661441688350614bd6a350d2b6ff}{size}~20
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_f_i_l_m}{F\+I\+LM} \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_film__struktura_8c_afdf74474e3620c4396295ba154180c4e}{I\+D\+\_\+\+Filmu} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head)
+\item 
+\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$ \hyperlink{_film__struktura_8c_a75573b368bb023362b713ba9d9744f26}{Tworzenie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_aa7fe4bfc28bb6e99f692649132e2b9af}{Dodawanie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a580321d4fe610010ad7d382b5d84655d}{Wyswietlenie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a8107884381ea54aa37974ee672bd17b5}{Szukanie\+\_\+filmu} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$ \hyperlink{_film__struktura_8c_adfe3145866afda06186aaf3fa2a4c1cb}{Usuwanie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_aa74204cc1cd5fc0ed00e7325fb83440f}{Edytowanie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_af9cc92829ec9e2b67b31fc94d6910647}{swap} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$a, \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$b)
+\item 
+void \hyperlink{_film__struktura_8c_ad77992bdcd405e9537392f345216ce75}{sortowanie\+\_\+po\+\_\+tytule\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_af3456dbc864907b82db42488835ba185}{sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a1059b07849aba4235af4762b68ba38e1}{sortowanie\+\_\+po\+\_\+roku\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_afc36c7502ec426676a9628980de85c55}{sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a522de3ba697da9add839807139fe3703}{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_aabd095156046e2d0ba97b14210a0af75}{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a3b70a47691612979fb23c1a8985b5c18}{sortowanie\+\_\+po\+\_\+id\+\_\+ros} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a524d7f5acbdb717ee1df345ec4716267}{Sortowanie\+\_\+rosnaco} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a9ca0be958bb5a3dc64b29797d49696e9}{sortowanie\+\_\+po\+\_\+tytule\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a0df90e8855f4465f2480909a716459ba}{sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a09c335e47c2239bf0849343e6925daff}{sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_afb9cc7133ff8b738c4b2401f2a8388bf}{sortowanie\+\_\+po\+\_\+roku\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a31b1c5a5577eecc2c1da8ffe71a2e845}{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a4557043cdd7ef812664dd50b8644d21d}{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a2e0add067690ed623bc2b9eb365f3751}{sortowanie\+\_\+po\+\_\+id\+\_\+mal} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a6c8fa4fa7c759f0cc0df91342b567396}{Sortowanie\+\_\+malejaco} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a0f430be350de541c20ce6e4846038aee}{Sortowanie} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a7e7f86299c394ff7ff53c8ed7961f420}{Zapisywanie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$head)
+\item 
+void \hyperlink{_film__struktura_8c_a1b4a48661e269b0ad017a9a4cd3de793}{Wczytanie2} (\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$head)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_film__struktura_8c_a802c84452854799df868a4a660d3d58a}\label{_film__struktura_8c_a802c84452854799df868a4a660d3d58a}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!ilosc@{ilosc}}
+\index{ilosc@{ilosc}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{ilosc}{ilosc}}
+{\footnotesize\ttfamily \#define ilosc~50}
+
+
+
+Definition at line 9 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_aa23c661441688350614bd6a350d2b6ff}\label{_film__struktura_8c_aa23c661441688350614bd6a350d2b6ff}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!size@{size}}
+\index{size@{size}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \#define size~20}
+
+
+
+Definition at line 10 of file Film\+\_\+struktura.\+c.
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}\label{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Film@{Film}}
+\index{Film@{Film}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Film}{Film}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct_f_i_l_m}{F\+I\+LM} \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film}}
+
+
+
+Definition at line 12 of file Film\+\_\+struktura.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_film__struktura_8c_aa7fe4bfc28bb6e99f692649132e2b9af}\label{_film__struktura_8c_aa7fe4bfc28bb6e99f692649132e2b9af}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Dodawanie2@{Dodawanie2}}
+\index{Dodawanie2@{Dodawanie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Dodawanie2()}{Dodawanie2()}}
+{\footnotesize\ttfamily void Dodawanie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja dodajaca przypisanie wskaznikowi tmp funkcji tworzenia
+
+jezeli lista nie jest pusta
+
+to do nastepnego elementu przypisywana jest wartosc head
+
+a wartosc wskaznika tmp jest przypisywana wskaznikowi head 
+
+Definition at line 83 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_aa74204cc1cd5fc0ed00e7325fb83440f}\label{_film__struktura_8c_aa74204cc1cd5fc0ed00e7325fb83440f}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Edytowanie2@{Edytowanie2}}
+\index{Edytowanie2@{Edytowanie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Edytowanie2()}{Edytowanie2()}}
+{\footnotesize\ttfamily void Edytowanie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funckja edytujaca wyczyszczenie ekranu
+
+pobranie id od uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli lista nie jest pusta
+
+dopóki lista nie jest pusta
+
+id filmu zgadza sie
+
+wyswietlamy opcje
+
+petla do..while
+
+przypisanie i klawisza od uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wyczyszczenie ekranu
+
+wyswietlenie aktualnego tytulu
+
+pobranie nowego tytulu
+
+pobranie klawisza od uzytkownika
+
+jezeli 2
+
+wyswietlenie aktualnego gatunku
+
+pobranie nowego gatunku
+
+pobranie klawisza od uzytkownika
+
+jezeli 3
+
+wyswietlenie aktualnego rezysera
+
+pobranie nowego rezysera
+
+pobranie klawisza od uzytkownika
+
+jezeli 4
+
+wyswietlenie aktualnego roku
+
+pobranie nowego roku
+
+pobranie klawisza od uzytkownika
+
+jezeli 5
+
+wyswietlenie aktualnej liczby egzemplarzy
+
+pobranie nowej liczby egzemplarzy
+
+pobranie klawisza od uzytkownika
+
+jezeli 6
+
+wyswietlenie aktualnej liczby wypozyczen
+
+pobranie nowej liczby wypozyczen
+
+pobranie klawisza od uzytkownika
+
+dopóki i nie bedzie 0
+
+jezeli id sie nie zgadza, wyswietlamy
+
+wskaznikowi tmp przypisujemy wartosc nastepnego elementu aby poprawnie przechodzic po liscie 
+
+Definition at line 265 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_afdf74474e3620c4396295ba154180c4e}\label{_film__struktura_8c_afdf74474e3620c4396295ba154180c4e}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!I\+D\+\_\+\+Filmu@{I\+D\+\_\+\+Filmu}}
+\index{I\+D\+\_\+\+Filmu@{I\+D\+\_\+\+Filmu}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{I\+D\+\_\+\+Filmu()}{ID\_Filmu()}}
+{\footnotesize\ttfamily int I\+D\+\_\+\+Filmu (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funckja wyliczajaca ID filmu jezeli lista jest pusta
+
+zwracamy wartosc zero
+
+jezeli nie to zwiekszamy id filmu o 1 
+
+Definition at line 24 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a0f430be350de541c20ce6e4846038aee}\label{_film__struktura_8c_a0f430be350de541c20ce6e4846038aee}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Sortowanie@{Sortowanie}}
+\index{Sortowanie@{Sortowanie}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Sortowanie()}{Sortowanie()}}
+{\footnotesize\ttfamily void Sortowanie (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca opcje do sortowania wyswietlenie opcji dla uzytkownika
+
+przypisanie p opcji wybranej przez uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wywołujemy odpowiednia funkcje
+
+jezeli 2
+
+wywołujemy odpowiednia funkcje
+
+dopóki p nie bedzie 0 
+
+Definition at line 939 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a6c8fa4fa7c759f0cc0df91342b567396}\label{_film__struktura_8c_a6c8fa4fa7c759f0cc0df91342b567396}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Sortowanie\+\_\+malejaco@{Sortowanie\+\_\+malejaco}}
+\index{Sortowanie\+\_\+malejaco@{Sortowanie\+\_\+malejaco}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Sortowanie\+\_\+malejaco()}{Sortowanie\_malejaco()}}
+{\footnotesize\ttfamily void Sortowanie\+\_\+malejaco (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca mozliwosci do sortowania wyswietlenie opcji dla uzytkownika
+
+przypisanie p opcji wybranej przez uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 2
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 3
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 4
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 5
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 6
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 7
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+dopóki p nie bedzie 0 
+
+Definition at line 864 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a0df90e8855f4465f2480909a716459ba}\label{_film__struktura_8c_a0df90e8855f4465f2480909a716459ba}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal@{sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal@{sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal()}{sortowanie\_po\_gatunku\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+gatunku\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli gatunek jest mniejszy od nastepnego gatunku
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 696 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_af3456dbc864907b82db42488835ba185}\label{_film__struktura_8c_af3456dbc864907b82db42488835ba185}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros@{sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros@{sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros()}{sortowanie\_po\_gatunku\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+gatunku\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli gatunek jest wiekszy od nastepnego gatunku
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 421 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a2e0add067690ed623bc2b9eb365f3751}\label{_film__struktura_8c_a2e0add067690ed623bc2b9eb365f3751}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+id\+\_\+mal@{sortowanie\+\_\+po\+\_\+id\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+id\+\_\+mal@{sortowanie\+\_\+po\+\_\+id\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+id\+\_\+mal()}{sortowanie\_po\_id\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+id\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli id2 jest mniejsza od nastepnego id2
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 836 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a3b70a47691612979fb23c1a8985b5c18}\label{_film__struktura_8c_a3b70a47691612979fb23c1a8985b5c18}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+id\+\_\+ros@{sortowanie\+\_\+po\+\_\+id\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+id\+\_\+ros@{sortowanie\+\_\+po\+\_\+id\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+id\+\_\+ros()}{sortowanie\_po\_id\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+id\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli id2 jest wiekszy od nastepnego id2
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 564 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a31b1c5a5577eecc2c1da8ffe71a2e845}\label{_film__struktura_8c_a31b1c5a5577eecc2c1da8ffe71a2e845}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal@{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal@{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal()}{sortowanie\_po\_liczbieeg\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli liczba\+\_\+eg jest mniejsza od nastepnej liczba\+\_\+eg
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 780 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a522de3ba697da9add839807139fe3703}\label{_film__struktura_8c_a522de3ba697da9add839807139fe3703}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros@{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros@{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros()}{sortowanie\_po\_liczbieeg\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+liczbieeg\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli liczba\+\_\+eg jest wieksza od nastepnej liczba\+\_\+eg
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 506 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a4557043cdd7ef812664dd50b8644d21d}\label{_film__struktura_8c_a4557043cdd7ef812664dd50b8644d21d}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal@{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal@{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal()}{sortowanie\_po\_liczbiewyp\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli liczba\+\_\+wyp jest mniejsza od nastepnej liczba\+\_\+wyp
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 808 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_aabd095156046e2d0ba97b14210a0af75}\label{_film__struktura_8c_aabd095156046e2d0ba97b14210a0af75}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros@{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros@{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros()}{sortowanie\_po\_liczbiewyp\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+liczbiewyp\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli liczba\+\_\+wyp jest wieksza od nastepnej liczba\+\_\+wyp
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 535 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a09c335e47c2239bf0849343e6925daff}\label{_film__struktura_8c_a09c335e47c2239bf0849343e6925daff}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal@{sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal@{sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal()}{sortowanie\_po\_rezyser\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+rezyser\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli rezsyer jest mniejszy od nastepnego rezysera
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 724 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_afc36c7502ec426676a9628980de85c55}\label{_film__struktura_8c_afc36c7502ec426676a9628980de85c55}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros@{sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros@{sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros()}{sortowanie\_po\_rezyser\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+rezyser\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli rezyser jest wiekszy od nastepnego rezysera
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 477 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_afb9cc7133ff8b738c4b2401f2a8388bf}\label{_film__struktura_8c_afb9cc7133ff8b738c4b2401f2a8388bf}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+roku\+\_\+mal@{sortowanie\+\_\+po\+\_\+roku\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+roku\+\_\+mal@{sortowanie\+\_\+po\+\_\+roku\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+roku\+\_\+mal()}{sortowanie\_po\_roku\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+roku\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli rok jest mniejszy od nastepnego roku
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 752 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a1059b07849aba4235af4762b68ba38e1}\label{_film__struktura_8c_a1059b07849aba4235af4762b68ba38e1}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+roku\+\_\+ros@{sortowanie\+\_\+po\+\_\+roku\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+roku\+\_\+ros@{sortowanie\+\_\+po\+\_\+roku\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+roku\+\_\+ros()}{sortowanie\_po\_roku\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+roku\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli rok jest wiekszy od nastepnego roku
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 449 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a9ca0be958bb5a3dc64b29797d49696e9}\label{_film__struktura_8c_a9ca0be958bb5a3dc64b29797d49696e9}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+tytule\+\_\+mal@{sortowanie\+\_\+po\+\_\+tytule\+\_\+mal}}
+\index{sortowanie\+\_\+po\+\_\+tytule\+\_\+mal@{sortowanie\+\_\+po\+\_\+tytule\+\_\+mal}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+tytule\+\_\+mal()}{sortowanie\_po\_tytule\_mal()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+tytule\+\_\+mal (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli id2 jest mniejszy od nastepnego id2
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 668 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_ad77992bdcd405e9537392f345216ce75}\label{_film__struktura_8c_ad77992bdcd405e9537392f345216ce75}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!sortowanie\+\_\+po\+\_\+tytule\+\_\+ros@{sortowanie\+\_\+po\+\_\+tytule\+\_\+ros}}
+\index{sortowanie\+\_\+po\+\_\+tytule\+\_\+ros@{sortowanie\+\_\+po\+\_\+tytule\+\_\+ros}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{sortowanie\+\_\+po\+\_\+tytule\+\_\+ros()}{sortowanie\_po\_tytule\_ros()}}
+{\footnotesize\ttfamily void sortowanie\+\_\+po\+\_\+tytule\+\_\+ros (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja sortujaca zalokowanie pamieci na wskaznik
+
+jezeli lista jest pusta
+
+wracamy
+
+przypisanie wartosci 0
+
+przypisanie wskaznikowi ptr1 wartosci head
+
+dopóki wskaznik na nastepny element ptr1 i lptr roznia sie
+
+jezeli tytul jest wiekszy od nastepnego tytulu
+
+zamieniamy wartosci
+
+ustawiamy swapped na 1
+
+przypisujemy ptr1 wartosc wskaznika nastepengo elemetnu
+
+lptr przypisujemy wartosc ptr1
+
+robimy to dopóki swapped = 1 
+
+Definition at line 393 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a524d7f5acbdb717ee1df345ec4716267}\label{_film__struktura_8c_a524d7f5acbdb717ee1df345ec4716267}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Sortowanie\+\_\+rosnaco@{Sortowanie\+\_\+rosnaco}}
+\index{Sortowanie\+\_\+rosnaco@{Sortowanie\+\_\+rosnaco}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Sortowanie\+\_\+rosnaco()}{Sortowanie\_rosnaco()}}
+{\footnotesize\ttfamily void Sortowanie\+\_\+rosnaco (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wyswietlajaca mozliwosci do sortowania wyswietlenie opcji dla uzytkownika
+
+przypisanie p opcji wybranej przez uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 2
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 3
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 4
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 5
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 6
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+jezeli 7
+
+wywołujemy odpowiednia funkcje
+
+wyczyszczenie ekranu
+
+pobranie klawisza od uzytkownika
+
+dopóki p nie bedzie 0 
+
+Definition at line 593 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_af9cc92829ec9e2b67b31fc94d6910647}\label{_film__struktura_8c_af9cc92829ec9e2b67b31fc94d6910647}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!swap@{swap}}
+\index{swap@{swap}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{a,  }\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{b }\end{DoxyParamCaption})}
+
+funkcja zamieniajaca 2 dane skopiowanie wartosci
+
+skopiowanie wartosci
+
+skopiowanie wartosci
+
+przypisanie wskaznikowi a wskazujacemy na rok wartosci wskaznika b wskazujacego na rok
+
+przypisanie wskaznikowy b wartosci danej rok
+
+przypisanie wskaznikowi a wskazujacemy na id2 wartosci wskaznika b wskazujacego na id2
+
+przypisanie wskaznikowy b wartosci danej id2
+
+przypisanie wskaznikowi a wskazujacemy na liczba\+\_\+eg wartosci wskaznika b wskazujacego na liczba\+\_\+eg
+
+przypisanie wskaznikowy b wartosci danej liczba\+\_\+eg
+
+przypisanie wskaznikowi a wskazujacemy na liczba\+\_\+wyp wartosci wskaznika b wskazujacego na liczba\+\_\+wyp
+
+przypisanie wskaznikowy b wartosci danej liczba\+\_\+wyp
+
+skopiowanie do wskaznika a wskazujacemy na tytul wartosci wskaznika b wskazujacego na tytul
+
+skopiowanie do wskaznika b wartosci danej tytul
+
+skopiowanie do wskaznika a wskazujacemy na gatunek wartosci wskaznika b wskazujacego na gatunek
+
+skopiowanie do wskaznika b wartosci danej gatunek
+
+skopiowanie do wskaznika a wskazujacemy na rezyser wartosci wskaznika b wskazujacego na rezyser
+
+skopiowanie do wskaznika b wartosci danej rezyser 
+
+Definition at line 360 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a8107884381ea54aa37974ee672bd17b5}\label{_film__struktura_8c_a8107884381ea54aa37974ee672bd17b5}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Szukanie\+\_\+filmu@{Szukanie\+\_\+filmu}}
+\index{Szukanie\+\_\+filmu@{Szukanie\+\_\+filmu}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Szukanie\+\_\+filmu()}{Szukanie\_filmu()}}
+{\footnotesize\ttfamily void Szukanie\+\_\+filmu (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja szukajaca filmów wyczyszczenie ekranu
+
+wyswietlenie opcji
+
+przypisanie i klwaisza podanego przez uzytkownika
+
+pobranie klawisza od uzytkownika
+
+jezeli 1
+
+wyczyszczenie ekranu
+
+pobranie tytulu od uzytkownika
+
+jezeli lista nie jest pusta
+
+i tytul jest prawidlowy
+
+wyswietlamy informacje
+
+zmieniamy wartosc na 1
+
+przypisujemy wskaznikowi tmp nastepny element aby poprawnie przechodzic po liscie
+
+jezeli check jest 0 to znaczy ze nie ma filmów
+
+przypisujemy ponownie wartosc 0
+
+pobranie klawisza od uzytkownika
+
+jezeli 2
+
+wyczyszczenie ekranu
+
+pobranie gatunku od uzytkownika
+
+jezeli lista nie jest pusta
+
+i gatunek jest prawidlowy
+
+wyswietlamy informacje
+
+zmieniamy wartosc na 1
+
+przypisujemy wskaznikowi tmp nastepny element aby poprawnie przechodzic po liscie
+
+jezeli check jest 0 to znaczy ze nie ma filmów
+
+przypisujemy ponownie wartosc 0
+
+pobranie klawisza od uzytkownika
+
+jezeli 3
+
+wyczyszczenie ekranu
+
+pobranie rezsyera od uzytkownika
+
+jezeli lista nie jest pusta
+
+i rezyser jest prawidlowy
+
+wyswietlamy informacje
+
+zmieniamy wartosc na 1
+
+przypisujemy wskaznikowi tmp nastepny element aby poprawnie przechodzic po liscie
+
+jezeli check jest 0 to znaczy ze nie ma filmów
+
+przypisujemy ponownie wartosc 0
+
+pobranie klawisza od uzytkownika
+
+jezeli 4
+
+wyczyszczenie ekranu
+
+pobranie rezsyera od uzytkownika
+
+jezeli lista nie jest pusta
+
+i rok jest prawidlowy
+
+wyswietlamy informacje
+
+zmieniamy wartosc na 1
+
+przypisujemy wskaznikowi tmp nastepny element aby poprawnie przechodzic po liscie
+
+jezeli check jest 0 to znaczy ze nie ma filmów
+
+przypisujemy ponownie wartosc 0
+
+pobranie klawisza od uzytkownika
+
+pobranie klawisza od uzytkownika 
+
+Definition at line 117 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a75573b368bb023362b713ba9d9744f26}\label{_film__struktura_8c_a75573b368bb023362b713ba9d9744f26}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Tworzenie2@{Tworzenie2}}
+\index{Tworzenie2@{Tworzenie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Tworzenie2()}{Tworzenie2()}}
+{\footnotesize\ttfamily \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film}$\ast$ Tworzenie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja tworzaca nowy element wyczyszczenie ekranu
+
+wyswietlenie polecenia dla uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+pobranie wartosci od uzytkownika
+
+przypisujemy id filmu wartosc zwracana przez funkcje
+
+zalokowanie pamieci dla zmiennej Klient i przypisanie do zmiennej element
+
+przypisujemy nastepnemu elementowi wartosc N\+U\+LL
+
+kopiujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+kopiujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+kopiujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+przypisujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+przypisujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+przypisujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+przypisujemy wartosc podana przez uzytkownika do odpowiedniego pola w liscie
+
+pobranie klawisza od uzytkownika
+
+zwracamy wskaznik listy 
+
+Definition at line 36 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_adfe3145866afda06186aaf3fa2a4c1cb}\label{_film__struktura_8c_adfe3145866afda06186aaf3fa2a4c1cb}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Usuwanie2@{Usuwanie2}}
+\index{Usuwanie2@{Usuwanie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Usuwanie2()}{Usuwanie2()}}
+{\footnotesize\ttfamily \hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film}$\ast$ Usuwanie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja usuwajaca wyczyszczenie ekranu
+
+pobranie id od uzytkownika
+
+pobranie klawisza od uzytkownika
+
+wskaznik tymczasowy tmp wskazuje na head
+
+wskaznik pomocniczy prev wskazuje równie? na head
+
+dopóki wskaznik nie pokazuje konca listy wykonuj polecenia
+
+rozpoczynamy przeszukiwanie listy za podanym elementem
+
+jesli wartosc zgadza sie z liczba z danych z elementu
+
+gdy do usuniecia jest head
+
+przesuwamy wskaznik head na nastepny element
+
+usuwamy element
+
+wskaznikowi tmp przypisujemy wartosc head
+
+wskaznikowi tmp takze przypisujemy wartosc head
+
+jesli element do usuniecia nie jest pierwszym na liscie
+
+wskaznikowi nastepnemu z poprzedniego nadajemy
+
+wartosc wskaznika nastepnego z tmp( z tego do usuniecia )
+
+usuwamy wartosc na która wskazuje tmp
+
+tmp przechodzi na nastepny element
+
+jesli wartosc nie jest taka jak liczba z danych z elementu
+
+prev przyjmuje wartosc tmp
+
+tmp przechodzi do nastepnego elementu listy
+
+zwracamy wskaznik head 
+
+Definition at line 227 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a1b4a48661e269b0ad017a9a4cd3de793}\label{_film__struktura_8c_a1b4a48661e269b0ad017a9a4cd3de793}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Wczytanie2@{Wczytanie2}}
+\index{Wczytanie2@{Wczytanie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wczytanie2()}{Wczytanie2()}}
+{\footnotesize\ttfamily void Wczytanie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja wczytujaca wskaznikowi wczytaj przypisujemy N\+U\+LL na poczatek
+
+przypisanie pliku do otworzenia
+
+wskaznikowi wczytaj przypisujemy otwarcie pliku, r-\/read
+
+jezeli nie ma pliku
+
+to wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+dopóki w pliku są linijki i funkcja nie zwróci E\+OF
+
+zalokowanie pamieci na wskaznik
+
+przypisanie wskaznikowi tmp-\/$>$next wartosci N\+U\+LL
+
+wczytujemy dane
+
+jezeli lista jest pusta
+
+przypisujemy jej wartosc wskaznika tmp
+
+jezeli nie jest pusta przypisujemy wskaznikowi pom wartosc wskaznika head
+
+dopóki wskaznik pom-\/$>$next nie jest pusty
+
+przypisujemy wskaznikowi pom wskaznik na nastepny element
+
+a wskaznikowi na nastepny element wartosc wskaznika tmp 
+
+Definition at line 1008 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a580321d4fe610010ad7d382b5d84655d}\label{_film__struktura_8c_a580321d4fe610010ad7d382b5d84655d}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Wyswietlenie2@{Wyswietlenie2}}
+\index{Wyswietlenie2@{Wyswietlenie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Wyswietlenie2()}{Wyswietlenie2()}}
+{\footnotesize\ttfamily void Wyswietlenie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+wyswietlenie listy wyczyszczenie ekranu
+
+przypisanie wskaznikowi tmp wartosci wskaznika head
+
+jezeli lista jest pusta
+
+wyswietlamy komunikat
+
+jezeli lista nie jest pusta
+
+wyswietlamy informacje o filmie
+
+wskaznikowi tmp przypisujemy nastepny element aby poprawnie przechodzic po liscie
+
+pobranie klawisza od uzytkownika 
+
+Definition at line 90 of file Film\+\_\+struktura.\+c.
+
+\mbox{\Hypertarget{_film__struktura_8c_a7e7f86299c394ff7ff53c8ed7961f420}\label{_film__struktura_8c_a7e7f86299c394ff7ff53c8ed7961f420}} 
+\index{Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}!Zapisywanie2@{Zapisywanie2}}
+\index{Zapisywanie2@{Zapisywanie2}!Film\+\_\+struktura.\+c@{Film\+\_\+struktura.\+c}}
+\subsubsection{\texorpdfstring{Zapisywanie2()}{Zapisywanie2()}}
+{\footnotesize\ttfamily void Zapisywanie2 (\begin{DoxyParamCaption}\item[{\hyperlink{_film__struktura_8c_ad2e5228e76da3af7ebed978bbc379920}{Film} $\ast$}]{head }\end{DoxyParamCaption})}
+
+funkcja zapisujaca wskaznikowi zapisz przypisujemy N\+U\+LL na poczatek
+
+przypisanie pliku do zapisu
+
+jezeli lista jest pusta
+
+wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+jezeli nie jest, do wskaznika zapisz otwieramy plik to zapisu, w-\/write
+
+jezeli nie ma pliku
+
+wypisujemy komunikat
+
+pobranie klawisza od uzytkownika
+
+wskaznikowi tmp przypisujemy wartosc head
+
+dopoki lista nie jst pusta
+
+zapisujemy dane
+
+wskanizkowi tmp przypisujemy wartosc nastepna aby poprawnie przechodzic po lisice 
+
+Definition at line 963 of file Film\+\_\+struktura.\+c.
+
